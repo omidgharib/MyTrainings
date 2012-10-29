@@ -22,6 +22,8 @@ function plus_click() {
 }
 
 function equal_click() {
+	var result;
+	
 	if (first_operand!='' && second_operand!='') 
 	{
 		if (first_operand_set == true && document.getElementById('screen').value!='' ) 
@@ -29,7 +31,6 @@ function equal_click() {
 			second_operand = document.getElementById('screen').value;
 			document.getElementById('screen').value = '';
 		}
-		var result;
 		try 
 		{
 			switch (operator)

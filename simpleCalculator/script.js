@@ -4,75 +4,87 @@ var first_operand_set=false;
 var operator;
 
 function plus_click() {
-	var str = document.getElementById('screen').value;
-	document.getElementById('screen').value ='';
-	document.getElementById('operator').innerText ='+';
-	if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
-	if (first_operand_set == false) 
-	{ 
-		first_operand = str;
-		first_operand_set = true;
+	if (document.getElementById('screen').value!='') {
+		var str = document.getElementById('screen').value;
+		document.getElementById('screen').value ='';
+		document.getElementById('operator').innerText ='+';
+		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
+		if (first_operand_set == false) 
+		{ 
+			first_operand = str;
+			first_operand_set = true;
+		}
+		else 
+		{
+			second_operand=str;
+			equal_click();
+		}
+		operator='+';
 	}
-	else 
-	{
-		second_operand=str;
-		equal_click();
-	}
-	operator='+';
+	else alert('Please input number!!!');
 }
 
 function subtract_click() {
-	var str = document.getElementById('screen').value;
-	document.getElementById('screen').value ='';
-	document.getElementById('operator').innerText ='-';
-	if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
-	if (first_operand_set == false) 
-	{ 
-		first_operand = str;
-		first_operand_set = true;
+	if (document.getElementById('screen').value!='') {
+		var str = document.getElementById('screen').value;
+		document.getElementById('screen').value ='';
+		document.getElementById('operator').innerText ='-';
+		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
+		if (first_operand_set == false) 
+		{ 
+			first_operand = str;
+			first_operand_set = true;
+		}
+		else 
+		{
+			second_operand=str;
+			equal_click();
+		}
+		operator='-';
 	}
-	else 
-	{
-		second_operand=str;
-		equal_click();
-	}
-	operator='-';
+	else alert('Please input number!!!');
 }
 
 function multiply_click() {
-	var str = document.getElementById('screen').value;
-	document.getElementById('screen').value ='';
-	document.getElementById('operator').innerText ='*';
-	if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
-	if (first_operand_set == false) 
-	{ 
-		first_operand = str;
-		first_operand_set = true;
+	if (document.getElementById('screen').value!='') {
+		var str = document.getElementById('screen').value;
+		document.getElementById('screen').value ='';
+		document.getElementById('operator').innerText ='*';
+		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
+		if (first_operand_set == false) 
+		{ 
+			first_operand = str;
+			first_operand_set = true;
+		}
+		else 
+		{
+			second_operand=str;
+			equal_click();
+		}
+		operator='*';
 	}
-	else 
-	{
-		second_operand=str;
-		equal_click();
-	}
-	operator='*';
+	else alert('Please input number!!!');
 }
 
 function division_click() {
-	var str = document.getElementById('screen').value;
-	document.getElementById('screen').value ='';
-	document.getElementById('operator').innerText ='/';
-	if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
-	if (first_operand_set == false) 
-	{ 
-		first_operand = str;
-		first_operand_set = true;
+	if (document.getElementById('screen').value!='') {
+		var str = document.getElementById('screen').value;
+		document.getElementById('screen').value ='';
+		document.getElementById('operator').innerText ='/';
+		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
+		if (first_operand_set == false) 
+		{ 
+			first_operand = str;
+			first_operand_set = true;
+		}
+		else 
+		{
+			second_operand=str;
+			equal_click();
+		}
+		operator='/';
 	}
-	else 
-	{
-		second_operand=str;
-		equal_click();
-	}
-	operator='/';
+	else alert('Please input number!!!');
 }
 
 function equal_click() {
@@ -120,4 +132,6 @@ function clear_click() {
 	first_operand_set = false;
 	document.getElementById('screen').value ='';
 	document.getElementById('operator').innerText ='';
+	document.getElementById('result').innerText ='';
+
 }

@@ -57,3 +57,11 @@ function equal_click() {
 	}
 	else alert('Please input another number!!');
 }
+
+function clearallvalues() {
+	first_operand = '';
+	second_operand = '';
+	first_operand_set = false;
+	document.getElementById('screen').value ='';
+	document.getElementById('operator').innerText ='';
+}

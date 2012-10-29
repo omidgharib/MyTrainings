@@ -21,9 +21,27 @@ function plus_click() {
 	operator='+';
 }
 
+function subtract_click() {
+	var str = document.getElementById('screen').value;
+	document.getElementById('screen').value ='';
+	document.getElementById('operator').innerText ='-';
+	if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
+	if (first_operand_set == false) 
+	{ 
+		first_operand = str;
+		first_operand_set = true;
+	}
+	else 
+	{
+		second_operand=str;
+		equal_click();
+	}
+	operator='-';
+}
+
 function equal_click() {
 	var result;
-	
+
 	if (first_operand!='' && second_operand!='') 
 	{
 		if (first_operand_set == true && document.getElementById('screen').value!='' ) 

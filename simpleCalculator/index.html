@@ -5,17 +5,19 @@
 	<title>Calculator</title>
 	<link rel="stylesheet" href="../commonfiles/1styles.css" />
 	<link rel="stylesheet" href="./style.css" />
-
+	<script type="text/javascript" src='./script.js' ></script>
 </head>
 <body>
 	<div class="container">
 		<div class="calc">
-			<input type="text" id='display'>
-			<p id='operator'></p>
-			<button type='button' id='plus'> + </button>
-			<button type='button' id='subtract'> - </button>
-			<button type='button' id='multiply'> * </button>
-			<button type='button' id='division'> / </button>
+			<form id='calc_form' action="">
+				<input type="text" id='screen'>
+				<p id='operator'></p>
+				<button type='button' id='plus' 	onclick='plus_click();' > + </button>
+				<button type='button' id='subtract' onclick='subtract_click();'> - </button>
+				<button type='button' id='multiply' onclick='multiply_click();'> * </button>
+				<button type='button' id='division' onclick='division_click();'> / </button>
+			</form>
 		</div>
 	</div>
 </body>

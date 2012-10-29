@@ -83,7 +83,7 @@ function equal_click() {
 		second_operand = document.getElementById('screen').value;
 		document.getElementById('screen').value = '';
 	}
-	
+
 	if (first_operand!='' && second_operand!='') 
 	{
 		try 
@@ -114,7 +114,7 @@ function equal_click() {
 	else alert('Please input another number!!');
 }
 
-function clearallvalues() {
+function clear_click() {
 	first_operand = '';
 	second_operand = '';
 	first_operand_set = false;

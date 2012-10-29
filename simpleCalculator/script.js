@@ -78,13 +78,14 @@ function division_click() {
 function equal_click() {
 	var result;
 
+	if (first_operand_set == true && document.getElementById('screen').value!='' ) 
+	{
+		second_operand = document.getElementById('screen').value;
+		document.getElementById('screen').value = '';
+	}
+	
 	if (first_operand!='' && second_operand!='') 
 	{
-		if (first_operand_set == true && document.getElementById('screen').value!='' ) 
-		{
-			second_operand = document.getElementById('screen').value;
-			document.getElementById('screen').value = '';
-		}
 		try 
 		{
 			switch (operator)

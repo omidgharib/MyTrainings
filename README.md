@@ -1,4 +1,4 @@
 MyTraining
 ==========
 
-My simple training by myself
+My simple trainings by myself

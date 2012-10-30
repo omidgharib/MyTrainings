@@ -121,7 +121,7 @@ function equal_click() {
 		first_operand = result;
 		second_operand= '';
 		operator = '';
-		document.getElementById('result').innerText = result;
+		document.getElementById('screen').value = result;
 	}
 	else alert('Please input another number!!');
 }

@@ -11,26 +11,34 @@
 	<div class="container">
 		<div class="calc">
 			<form id='calc_form' action="">
-				<input type="text" id='screen'>
-				<p id='result'></p>
-				<button type='button' id='clear' 	onclick='clear_click();'> C </button>
-				<p id='operator'></p>
-				<button type='button' id='number7' 	onclick='addnum_click(this);'> 7 </button>
-				<button type='button' id='number8' 	onclick='addnum_click(this);'> 8 </button>
-				<button type='button' id='number9' 	onclick='addnum_click(this);'> 9 </button>
-				<button type='button' id='division' onclick='division_click();'> / </button>
-				<button type='button' id='number4' 	onclick='addnum_click(this);'> 4 </button>
-				<button type='button' id='number5' 	onclick='addnum_click(this);'> 5 </button>
-				<button type='button' id='number6' 	onclick='addnum_click(this);'> 6 </button>
-				<button type='button' id='multiply' onclick='multiply_click();'> * </button>
-				<button type='button' id='number1' 	onclick='addnum_click(this);'> 1 </button>
-				<button type='button' id='number2' 	onclick='addnum_click(this);'> 2 </button>
-				<button type='button' id='number3' 	onclick='addnum_click(this);'> 3 </button>
-				<button type='button' id='subtract' onclick='subtract_click();'> - </button>
-				<button type='button' id='number0' 	onclick='addnum_click(this);'> 0 </button>
-				<button type='button' id='dot' 	onclick='addnum_click(this);'> . </button>
-				<button type='button' id='equal' 	onclick='equal_click();'> = </button>
-				<button type='button' id='plus' 	onclick='plus_click();' > + </button>
+				<div class="pt1 mb1 lh4 row cover">
+					<input type="text" id='screen' placeholder='0'>
+					<button type='button' id='clear' 	onclick='clear_click();'> C </button>
+				</div>
+				<div class="row cover">
+					<button type='button' id='number7' 	onclick='addnum_click(this);'> 7 </button>
+					<button type='button' id='number8' 	onclick='addnum_click(this);'> 8 </button>
+					<button type='button' id='number9' 	onclick='addnum_click(this);'> 9 </button>
+					<button type='button' id='division' onclick='division_click();'> / </button>
+				</div>
+				<div class="row cover">
+					<button type='button' id='number4' 	onclick='addnum_click(this);'> 4 </button>
+					<button type='button' id='number5' 	onclick='addnum_click(this);'> 5 </button>
+					<button type='button' id='number6' 	onclick='addnum_click(this);'> 6 </button>
+					<button type='button' id='multiply' onclick='multiply_click();'> * </button>
+				</div>
+				<div class="row cover">
+					<button type='button' id='number1' 	onclick='addnum_click(this);'> 1 </button>
+					<button type='button' id='number2' 	onclick='addnum_click(this);'> 2 </button>
+					<button type='button' id='number3' 	onclick='addnum_click(this);'> 3 </button>
+					<button type='button' id='subtract' onclick='subtract_click();'> - </button>
+				</div>
+				<div class="row cover">
+					<button type='button' id='number0' 	onclick='addnum_click(this);'> 0 </button>
+					<button type='button' id='dot' 	onclick='addnum_click(this);'> . </button>
+					<button type='button' id='equal' 	onclick='equal_click();'> = </button>
+					<button type='button' id='plus' 	onclick='plus_click();' > + </button>
+				</div>
 			</form>
 		</div>
 	</div>

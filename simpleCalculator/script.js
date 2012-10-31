@@ -29,7 +29,6 @@ function plus_click() {
 function subtract_click() {
 	if (document.getElementById('screen').value!='') {
 		var str = document.getElementById('screen').value;
-		document.getElementById('screen').value ='';
 		document.getElementById('operator').innerText ='-';
 		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
 		if (first_operand_set == false) 
@@ -43,6 +42,7 @@ function subtract_click() {
 			equal_click();
 		}
 		operator='-';
+		document.getElementById('screen').value ='';
 		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
@@ -51,7 +51,6 @@ function subtract_click() {
 function multiply_click() {
 	if (document.getElementById('screen').value!='') {
 		var str = document.getElementById('screen').value;
-		document.getElementById('screen').value ='';
 		document.getElementById('operator').innerText ='*';
 		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
 		if (first_operand_set == false) 
@@ -65,6 +64,7 @@ function multiply_click() {
 			equal_click();
 		}
 		operator='*';
+		document.getElementById('screen').value ='';
 		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
@@ -73,7 +73,6 @@ function multiply_click() {
 function division_click() {
 	if (document.getElementById('screen').value!='') {
 		var str = document.getElementById('screen').value;
-		document.getElementById('screen').value ='';
 		document.getElementById('operator').innerText ='/';
 		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
 		if (first_operand_set == false) 
@@ -87,6 +86,7 @@ function division_click() {
 			equal_click();
 		}
 		operator='/';
+		document.getElementById('screen').value ='';
 		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
@@ -138,8 +138,7 @@ function clear_click() {
 	first_operand_set = false;
 	document.getElementById('screen').value = '';
 	document.getElementById('operator').innerText = '';
-	document.getElementById('result').innerText = '';
-	document.getElementById('screen').placeholder = null;
+	document.getElementById('screen').placeholder = '0';
 }
 
 function addnum_click(id) {

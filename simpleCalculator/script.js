@@ -23,6 +23,7 @@ function plus_click() {
 		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
+	changecolor_operator();
 }
 
 function subtract_click() {
@@ -45,6 +46,7 @@ function subtract_click() {
 		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
+	changecolor_operator();
 }
 
 function multiply_click() {
@@ -67,6 +69,7 @@ function multiply_click() {
 		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
+	changecolor_operator();
 }
 
 function division_click() {
@@ -89,6 +92,7 @@ function division_click() {
 		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
+	changecolor_operator();
 }
 
 function equal_click() {
@@ -129,35 +133,41 @@ function equal_click() {
 		document.getElementById('screen').value = result;
 	}
 	else alert('Please input another number!!');
+	changecolor_operator();
 }
 
 function clear_click() {
 	first_operand = '';
 	second_operand = '';
 	first_operand_set = false;
+	operator= '';
 	document.getElementById('screen').value = '';
 	document.getElementById('screen').placeholder = '0';
+	changecolor_operator();
 }
 
 function addnum_click(id) {
 	document.getElementById('screen').value += id.innerText;
 }
 
-switch(operator)
-	{
-		case '+' : document.getElementById('plus').style.color='green';
-					break;
-		case '-' : document.getElementById('subtract').style.color='green';
-					break;
-		case '*' : document.getElementById('multiply').style.color='green';
-					break;	
-		case '/' : document.getElementById('division').style.color='green';
-					break;
-		default  : 
-					{
-					 document.getElementById('plus').style.color='#eee';
-					 document.getElementById('subtract').style.color='#eee';
-					 document.getElementById('multiply').style.color='#eee';
-					 document.getElementById('division').style.color='#eee';
-					}
-	}	
+function changecolor_operator() {
+
+	switch(operator)
+		{
+			case '+' : document.getElementById('plus').style.color='green';
+						break;
+			case '-' : document.getElementById('subtract').style.color='green';
+						break;
+			case '*' : document.getElementById('multiply').style.color='green';
+						break;	
+			case '/' : document.getElementById('division').style.color='green';
+						break;
+			default  : 
+						{
+						 document.getElementById('plus').style.color='#eee';
+						 document.getElementById('subtract').style.color='#eee';
+						 document.getElementById('multiply').style.color='#eee';
+						 document.getElementById('division').style.color='#eee';
+						}
+		}	
+}

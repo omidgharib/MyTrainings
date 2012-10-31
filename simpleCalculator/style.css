@@ -9,3 +9,29 @@ div.calc{
 	min-height	: 200px;
 	margin 		: 10px auto;
 }
+
+div.calc form input#screen {
+	width :	250px;
+	height: 25px;
+	border: 1px solid #ddd;
+	border-radius	: 3px;
+	margin-top		: 10px;
+	margin-bottom	: 8px; 
+}
+
+div.calc form button {
+	width 	: 50px;
+	height 	: 30px;
+	color 	: #eee;
+	float 	: left;
+	/*border 	:  1px solid #ddd;*/
+	line-height		: 25px;
+	border-radius	: 5px;
+	margin-right	: 5px;
+	margin-bottom	: 5px; 
+	background 	: -webkit-gradient(linear, left top, left bottom, from(#666), to(#333));
+	background 	: -moz-linear-gradient(rgb(102, 102, 102), rgb(51, 51, 51)) repeat scroll 0% 0% transparent;
+	-ms-filter 	: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#333', endColorstr='#666')";
+	background 	: -ms-gradient(linear, left top, left bottom, from(#333), to(#666));
+	background 	: -o-gradient(linear, left top, left bottom, from(#333), to(#666));
+}

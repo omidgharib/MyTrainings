@@ -7,7 +7,6 @@ function plus_click() {
 	if (document.getElementById('screen').value!='') {
 		var str = document.getElementById('screen').value;
 		document.getElementById('screen').value ='';
-		document.getElementById('operator').innerText ='+';
 		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
 		if (first_operand_set == false) 
 		{ 
@@ -29,7 +28,7 @@ function plus_click() {
 function subtract_click() {
 	if (document.getElementById('screen').value!='') {
 		var str = document.getElementById('screen').value;
-		document.getElementById('operator').innerText ='-';
+		document.getElementById('screen').value ='';
 		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
 		if (first_operand_set == false) 
 		{ 
@@ -51,7 +50,7 @@ function subtract_click() {
 function multiply_click() {
 	if (document.getElementById('screen').value!='') {
 		var str = document.getElementById('screen').value;
-		document.getElementById('operator').innerText ='*';
+		document.getElementById('screen').value ='';
 		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
 		if (first_operand_set == false) 
 		{ 
@@ -73,7 +72,7 @@ function multiply_click() {
 function division_click() {
 	if (document.getElementById('screen').value!='') {
 		var str = document.getElementById('screen').value;
-		document.getElementById('operator').innerText ='/';
+		document.getElementById('screen').value ='';
 		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
 		if (first_operand_set == false) 
 		{ 
@@ -137,10 +136,28 @@ function clear_click() {
 	second_operand = '';
 	first_operand_set = false;
 	document.getElementById('screen').value = '';
-	document.getElementById('operator').innerText = '';
 	document.getElementById('screen').placeholder = '0';
 }
 
 function addnum_click(id) {
 	document.getElementById('screen').value += id.innerText;
 }
+
+switch(operator)
+	{
+		case '+' : document.getElementById('plus').style.color='green';
+					break;
+		case '-' : document.getElementById('subtract').style.color='green';
+					break;
+		case '*' : document.getElementById('multiply').style.color='green';
+					break;	
+		case '/' : document.getElementById('division').style.color='green';
+					break;
+		default  : 
+					{
+					 document.getElementById('plus').style.color='#eee';
+					 document.getElementById('subtract').style.color='#eee';
+					 document.getElementById('multiply').style.color='#eee';
+					 document.getElementById('division').style.color='#eee';
+					}
+	}	

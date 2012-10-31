@@ -20,6 +20,8 @@ function plus_click() {
 			equal_click();
 		}
 		operator='+';
+		document.getElementById('screen').value ='';
+		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
 }
@@ -41,6 +43,7 @@ function subtract_click() {
 			equal_click();
 		}
 		operator='-';
+		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
 }
@@ -62,6 +65,7 @@ function multiply_click() {
 			equal_click();
 		}
 		operator='*';
+		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
 }
@@ -83,6 +87,7 @@ function division_click() {
 			equal_click();
 		}
 		operator='/';
+		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}
 	else alert('Please input number!!!');
 }
@@ -131,9 +136,10 @@ function clear_click() {
 	first_operand = '';
 	second_operand = '';
 	first_operand_set = false;
-	document.getElementById('screen').value ='';
-	document.getElementById('operator').innerText ='';
-	document.getElementById('result').innerText ='';
+	document.getElementById('screen').value = '';
+	document.getElementById('operator').innerText = '';
+	document.getElementById('result').innerText = '';
+	document.getElementById('screen').placeholder = null;
 }
 
 function addnum_click(id) {

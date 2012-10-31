@@ -1,3 +1,7 @@
+body {
+	background-color: #eee;
+}
+
 div.container {
 	width				: 950px;
 	background-color	: #eee;
@@ -5,9 +9,12 @@ div.container {
 }
 
 div.calc{
-	width		: 320px;
+	width		: 230px;
 	min-height	: 200px;
 	margin 		: 10px auto;
+	padding-left: 5px;
+	border 		: 1px solid #ccc;
+	background-color: #ddd;
 }
 
 div.calc div.row {

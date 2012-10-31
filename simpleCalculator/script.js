@@ -94,6 +94,7 @@ function equal_click() {
 	{
 		second_operand = document.getElementById('screen').value;
 		document.getElementById('screen').value = '';
+		first_operand_set =false;
 	}
 
 	if (first_operand!='' && second_operand!='') 
@@ -114,7 +115,7 @@ function equal_click() {
 		}
 		catch(error)
 		{
-			txt='A error occured.\n';
+			txt='An error occured.\n';
 			txt+='Error description:'+ error.message +'\n Click OK to continue...';
 			alert(txt);
 		}
@@ -133,5 +134,8 @@ function clear_click() {
 	document.getElementById('screen').value ='';
 	document.getElementById('operator').innerText ='';
 	document.getElementById('result').innerText ='';
+}
 
+function addnum_click(id) {
+	document.getElementById('screen').value += id.innerText;
 }

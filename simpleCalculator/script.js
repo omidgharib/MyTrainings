@@ -4,76 +4,23 @@ var first_operand_set=false;
 var operator;
 
 function plus_click() {
-	if (document.getElementById('screen').value!='') {
-		var str = document.getElementById('screen').value;
-		document.getElementById('screen').value ='';
-		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
-		if (first_operand_set == false) 
-		{ 
-			first_operand = str;
-			first_operand_set = true;
-		}
-		else 
-		{
-			second_operand=str;
-			equal_click();
-		}
-		operator='+';
-		document.getElementById('screen').value ='';
-		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
-	}
-	else alert('Please input number!!!');
-	changecolor_operator();
+	set_operator('+');
 }
 
 function subtract_click() {
-	if (document.getElementById('screen').value!='') {
-		var str = document.getElementById('screen').value;
-		document.getElementById('screen').value ='';
-		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
-		if (first_operand_set == false) 
-		{ 
-			first_operand = str;
-			first_operand_set = true;
-		}
-		else 
-		{
-			second_operand=str;
-			equal_click();
-		}
-		operator='-';
-		document.getElementById('screen').value ='';
-		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
-	}
-	else alert('Please input number!!!');
-	changecolor_operator();
+	set_operator('-');
 }
 
 function multiply_click() {
-	if (document.getElementById('screen').value!='') {
-		var str = document.getElementById('screen').value;
-		document.getElementById('screen').value ='';
-		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
-		if (first_operand_set == false) 
-		{ 
-			first_operand = str;
-			first_operand_set = true;
-		}
-		else 
-		{
-			second_operand=str;
-			equal_click();
-		}
-		operator='*';
-		document.getElementById('screen').value ='';
-		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
-	}
-	else alert('Please input number!!!');
-	changecolor_operator();
+	set_operator('*');
 }
 
 function division_click() {
-	if (document.getElementById('screen').value!='') {
+	set_operator('/');
+}
+
+function set_operator(op) {
+		if (document.getElementById('screen').value!='') {
 		var str = document.getElementById('screen').value;
 		document.getElementById('screen').value ='';
 		if (isNaN(str)) { alert('Please input number(digits)!!!\n Not a string'); }
@@ -87,7 +34,7 @@ function division_click() {
 			second_operand=str;
 			equal_click();
 		}
-		operator='/';
+		operator=op;
 		document.getElementById('screen').value ='';
 		if (first_operand!='')   { document.getElementById('screen').placeholder=first_operand; }
 	}

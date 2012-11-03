@@ -43,6 +43,7 @@ function set_operator(op) {
 	}
 	else alert('Please input number!!!');
 	changecolor_operator();
+	document.getElementById('screen').focus();
 }
 
 function equal_click() {
@@ -84,6 +85,7 @@ function equal_click() {
 	}
 	else alert('Please input another number!!');
 	changecolor_operator();
+	document.getElementById('screen').focus();
 }
 
 function clear_click() {

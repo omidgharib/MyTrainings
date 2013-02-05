@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	
+	body {
+		background: #333;
+	}
+	div.container {
+		width : 950px;
+		min-height : 300px;
+		margin : 0 auto;
+	}
+
+	div.drop {
+		width : 16px;
+		height : 16px;
+		background-image: url('Snow_flake_icon.png');
+		background-repeat : none;
+		background-size: 16px 16px;
+		-webkit-transition: all 7s;
+		   -moz-transition: all 7s;
+		    -ms-transition: all 7s;
+		     -o-transition: all 7s;
+		        transition: all 7s;
+		
+		-webkit-transition-timing-function:cubic-bezier(0,0,0,1);
+		position : fixed;
+		top : -25px;
+		left : 45%;
+		display : block;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<script type="text/javascript">
+			var max=200;
+			function rnd(a,b) {
+				return Math.floor(Math.random()*(b-a))+a;
+			}
+
+			function randColor() {
+			var c='#';
+			for(var i=0;i<6;i++){
+				c+=rnd(0,15).toString(16);
+			}
+			return c;
+			}
+			
+			for (var i =0 ; i < max ; i++) {
+				document.write("<div class='drop'></div>");
+			}
+
+			for(var i=0; i < max ; i++) {
+				drop=document.getElementsByClassName('drop').item(i);
+				drop.style.left=rnd(5,95)+"%";
+				//drop.style.height=rnd(15,25)+"px";
+				//drop.style.backgroundColor=randColor();
+			}
+
+			all=0;
+			function rain() {
+				if(all!=max){
+					document.getElementsByClassName('drop').item(all).style.top=rnd(96,99)+"%";
+					all++;
+				}
+			}
+
+			setInterval(rain,100);
+
+		</script>
+	</div>
+</body>
+</html>

@@ -67,7 +67,8 @@
 					this.className='abas';
 				}
 			}
-			
+
+			var IntCheckWinning;
 			function dropping() {
 				if(droped!=max){
 					box.item(droped).style.top="105%";
@@ -75,7 +76,7 @@
 				}
 				else {
 					clearInterval(IntDropping);
-					var IntCheckWinning = setInterval(checkWining,8100);
+					IntCheckWinning = setInterval(checkWining,8100);
 				}
 			}
 
@@ -88,8 +89,7 @@
 					clearInterval(IntCheckWinning);
 			}
 
-			var IntDropping = setInterval(dropping,80); //chejori az beyn bere??
-
+			var IntDropping = setInterval(dropping,80);
 		</script>
 	</div>
 </body>

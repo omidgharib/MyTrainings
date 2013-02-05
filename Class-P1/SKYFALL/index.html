@@ -67,8 +67,7 @@
 					this.className='abas';
 				}
 			}
-
-			var IntCheckWinning;
+			
 			function dropping() {
 				if(droped!=max){
 					box.item(droped).style.top="105%";
@@ -83,9 +82,10 @@
 			function checkWining() {
 					win=true;
 					for(var i=0 ; i < box.length ; i++) {
-						if (box.item(i).className=='box') { win=false; alert('You loose!!!\nFuck You :D'); }
+						if (box.item(i).className=='box') { win=false; }
 					}
-					if (win) {alert('Wins :*')};
+					if (win) {alert('Wins :*')}
+					else { alert('You loose!!!\nFuck You :D'); }
 					clearInterval(IntCheckWinning);
 			}
 

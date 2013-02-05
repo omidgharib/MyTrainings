@@ -40,7 +40,7 @@
 <body>
 	<div class="container">
 		<script type="text/javascript">
-			var max=5;
+			var max=10;
 			var droped=0;
 			function rnd(a,b) {
 				return Math.floor(Math.random()*(b-a))+a;
@@ -67,7 +67,7 @@
 					this.className='abas';
 				}
 			}
-			
+
 			function dropping() {
 				if(droped!=max){
 					box.item(droped).style.top="105%";
@@ -89,7 +89,7 @@
 					clearInterval(IntCheckWinning);
 			}
 
-			var IntDropping = setInterval(dropping,80);
+			var IntDropping = setInterval(dropping,480);
 		</script>
 	</div>
 </body>

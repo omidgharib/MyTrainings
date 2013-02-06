@@ -65,12 +65,12 @@
 				box.item(i).style.backgroundColor=randColor();
 				box.item(i).onclick=function() {
 					this.style.top='-70px';
-					this.className='abas';
+					this.remove();
 				}
 			}
 
 			function dropping() {
-				if(droped!=max){
+				if(droped<max){
 					box.item(droped).style.top="105%";
 					droped++;
 				}

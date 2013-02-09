@@ -14,7 +14,7 @@
 		font-size: 20px;
 		color: #eee;
 	}
-	div.box div {
+	div.box > div {
 		width: 50px;
 		height: 50px;
 		background-color: white;
@@ -22,6 +22,13 @@
 		position: fixed;
 		top:-60px;
 		cursor: pointer;
+	}
+
+	div.box > div > div{
+		float : left;
+		width : 5px;
+		height : 5px;
+		position : absolute;
 	}
 	</style>
 </head>
@@ -49,7 +56,15 @@
 				divs.item(i).style.backgroundColor = hsl(rnd(0,360),rnd(50,80),50);
 				divs.item(i).style.webkitTransition = 'opacity 300ms, top ' + ((max-i)*70) + 'ms linear';
 				divs.item(i).onmousedown = function(){
-					this.style.opacity=0;
+					for(var i=0; i < 100 ; i++){
+						this.innerHTML+="<div></div>";
+					}
+					innerdivs=this.getElementsByTagName('div');
+					for(var i=0 ; i < innerdivs.length ; i++){
+						innerdivs.item(i).style.top=i*5+'px';
+						innerdivs.item(i).style.left=i*5+'px';
+					}
+					//this.style.opacity=0;
 					addPoint();
 				}
 			}

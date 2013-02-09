@@ -17,19 +17,22 @@
 	div.box > div {
 		width: 50px;
 		height: 50px;
-		background-color: white;
 		margin:5px;
 		position: fixed;
 		top:-60px;
 		cursor: pointer;
 	}
 
-	div.box > div > div{
+	div.box > div > li{
+		display : block;
 		float : left;
 		width : 5px;
 		height : 5px;
 		position : absolute;
+		opacity : 1;
+		cursor : none;
 	}
+
 	</style>
 </head>
 <body>
@@ -54,17 +57,26 @@
 			for(var i=0;i<max;i++){
 				divs.item(i).style.left = rnd(10,90)+'%';
 				divs.item(i).style.backgroundColor = hsl(rnd(0,360),rnd(50,80),50);
-				divs.item(i).style.webkitTransition = 'opacity 300ms, top ' + ((max-i)*70) + 'ms linear';
+				divs.item(i).style.webkitTransition = ' top ' + ((max-i)*70) + 'ms linear';
 				divs.item(i).onmousedown = function(){
 					for(var i=0; i < 100 ; i++){
-						this.innerHTML+="<div></div>";
+						this.innerHTML+="<li></li>";
 					}
-					innerdivs=this.getElementsByTagName('div');
-					for(var i=0 ; i < innerdivs.length ; i++){
-						innerdivs.item(i).style.top=i*5+'px';
-						innerdivs.item(i).style.left=i*5+'px';
+					innerdivs=this.getElementsByTagName('li');
+					for(var i=0 ; i < 10 ; i++){
+						for(var j=0 ; j < 10 ; j++){
+							innerdivs.item(i*10+j).style.top=i*5+'px';
+							innerdivs.item(i*10+j).style.left=j*5+'px';
+							innerdivs.item(i*10+j).style.backgroundColor=this.style.backgroundColor;
+							innerdivs.item(i*10+j).style.webkitTransition = 'all 4s linear';
+							innerdivs.item(i*10+j).style.top=rnd(-100,950)+'px';
+							innerdivs.item(i*10+j).style.left=rnd(-300,950)+'px';
+							innerdivs.item(i*10+j).style.borderRadius='2px';
+							innerdivs.item(i*10+j).style.opacity=0;
+						}
 					}
-					//this.style.opacity=0;
+					this.style.backgroundColor=document.body.style.backgroundColor; //kalal :(
+					//this.opacity=10
 					addPoint();
 				}
 			}

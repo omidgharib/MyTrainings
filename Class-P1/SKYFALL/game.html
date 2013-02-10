@@ -15,8 +15,8 @@
 		color: #eee;
 	}
 	div.box > div {
-		width: 50px;
-		height: 50px;
+		width: 40px;
+		height: 40px;
 		margin:5px;
 		position: fixed;
 		top:-60px;
@@ -26,11 +26,10 @@
 	div.box > div > li{
 		display : block;
 		float : left;
-		width : 5px;
-		height : 5px;
+		width : 8px;
+		height : 8px;
 		position : absolute;
 		opacity : 1;
-		cursor : none;
 	}
 
 	</style>
@@ -53,30 +52,34 @@
 			}
 
 			var divs = document.getElementsByClassName('box').item(0).getElementsByTagName('div');
+			for(var i=0 ; i < max ; i++){
+				for(var j=0; j < 25 ; j++){
+					divs.item(i).innerHTML+="<li></li>";  //add 25 li tag to every div for explode in th future
+				}
+			}
 
-			for(var i=0;i<max;i++){
+			for(var i=0 ; i<max ; i++){
+				innerdivs=divs.item(i).getElementsByTagName('li');
+				var bgColor = hsl(rnd(0,360),rnd(50,80),50);
+				for(var j=0 ; j < 5 ; j++){
+					for(var k=0 ; k < 5 ; k++){
+							innerdivs.item(j*5+k).style.top=j*8+'px';
+							innerdivs.item(j*5+k).style.left=k*8+'px';
+							innerdivs.item(j*5+k).style.backgroundColor=bgColor;
+					}
+				}
 				divs.item(i).style.left = rnd(10,90)+'%';
-				divs.item(i).style.backgroundColor = hsl(rnd(0,360),rnd(50,80),50);
 				divs.item(i).style.webkitTransition = ' top ' + ((max-i)*70) + 'ms linear';
 				divs.item(i).onmousedown = function(){
-					for(var i=0; i < 100 ; i++){
-						this.innerHTML+="<li></li>";
-					}
 					innerdivs=this.getElementsByTagName('li');
-					for(var i=0 ; i < 10 ; i++){
-						for(var j=0 ; j < 10 ; j++){
-							innerdivs.item(i*10+j).style.top=i*5+'px';
-							innerdivs.item(i*10+j).style.left=j*5+'px';
-							innerdivs.item(i*10+j).style.backgroundColor=this.style.backgroundColor;
-							innerdivs.item(i*10+j).style.webkitTransition = 'all 4s linear';
-							innerdivs.item(i*10+j).style.top=rnd(-100,950)+'px';
-							innerdivs.item(i*10+j).style.left=rnd(-300,950)+'px';
-							innerdivs.item(i*10+j).style.borderRadius='2px';
-							innerdivs.item(i*10+j).style.opacity=0;
-						}
+					for(var i=0 ; i < 25 ; i++){
+							innerdivs.item(i).style.webkitTransition = 'all 990ms linear';
+							innerdivs.item(i).style.borderRadius='10px';
+							innerdivs.item(i).style.top=rnd(-100,950)+'px';
+							innerdivs.item(i).style.left=rnd(-400,950)+'px';
+							innerdivs.item(i).style.opacity=0;
 					}
-					this.style.backgroundColor=document.body.style.backgroundColor; //kalal :(
-					//this.opacity=10
+
 					addPoint();
 				}
 			}

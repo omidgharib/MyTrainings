@@ -88,14 +88,23 @@
 			var timer = setInterval(function(){
 				divs.item(i).style.top = '101%';
 				i++;
-				if(i>=max) clearInterval(timer);
+				if(i>=max) {
+					clearInterval(timer);
+					var winAlert = setInterval(function(){
+					alert('Your score is : '+ score);
+					document.title="Game is finished";
+					clearInterval(winAlert);
+					},1800);
+				}
 			},700);
 
 			var score = 0;
 			function addPoint(){
 				score++;
-				document.getElementById('score').innerHTML = 'Score : '+score+' / '+max;
+				document.getElementById('score').innerHTML = 'Score : '+score+' / '+max;				
 			}
+
+
 
 		</script>
 	</div>

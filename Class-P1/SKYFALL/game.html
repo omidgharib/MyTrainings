@@ -68,7 +68,7 @@
 					}
 				}
 				divs.item(i).style.left = rnd(10,90)+'%';
-				divs.item(i).style.webkitTransition = ' top ' + ((max-i)*70) + 'ms linear';
+				divs.item(i).style.webkitTransition = ' top ' + ((max-i)*70+700) + 'ms linear';
 				divs.item(i).onmousedown = function(){
 					innerdivs=this.getElementsByTagName('li');
 					for(var i=0 ; i < 25 ; i++){

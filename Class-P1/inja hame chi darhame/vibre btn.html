@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css" media="screen">
+		div.container {
+			width : 950px;
+			margin : 0 auto;
+		}
+
+		div.btnholder{
+			margin-top: 200px;
+			margin-left: 400px;
+			width : 70px;
+			height : 50px;
+			position: relative;
+			background-color: #ddd;
+		}
+
+		div.btn {
+			width : 60px;
+			height : 40px;
+			position : absolute;
+			top : 5px;
+			left : 5px;
+			line-height: 40px;
+			font-size: 16px;
+			background-color: darkmagenta;
+			text-align: center;
+			color : #fff;
+			-webkit-transition: all 100ms ease-in-out;
+			   -moz-transition: all 100ms ease-in-out;
+			    -ms-transition: all 100ms ease-in-out;
+			     -o-transition: all 100ms ease-in-out;
+			        transition: all 100ms ease-in-out;
+			-webkit-border-radius: 5px;
+			        border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+
+	<script type="text/javascript">
+		window.onload=function(){
+			function rnd(a,b){
+				return Math.floor(Math.random()*(b-a+1))+a;
+			}
+			var btn=document.getElementsByClassName('btnholder').item(0).getElementsByClassName('btn').item(0);
+		
+			btn.onmouseover=function(){
+				setInterval(function(){
+					btn.style.top=rnd(0,8)+'px';
+					btn.style.left=rnd(0,8)+'px';
+				},100);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class='container'>
+		<div class='btnholder'>
+			<div class='btn'>
+					Test :)							
+			</div>								
+		</div>									
+	</div>									
+</body>
+</html>							

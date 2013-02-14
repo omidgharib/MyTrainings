@@ -54,7 +54,8 @@ div.nav li {
 	        transition: all 300ms ease-in-out;
 }
 
-div.nav li:hover,li.active {
+div.nav li:hover,
+div.nav li.active {
 	opacity: 1;
 	background-color: #FFF;
 }

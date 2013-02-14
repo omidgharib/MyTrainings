@@ -25,6 +25,7 @@ div.row {
 }
 
 div.nav {
+	position : fixed;
 	right : 30px;
 	bottom : 30px;
 	background-color: #aaa;

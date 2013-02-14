@@ -3,17 +3,17 @@ window.onload=function(){
 	var rows =trainer.getElementsByClassName('row');
 	var nav =document.getElementsByClassName('nav').item(0);
 	var	lists=nav.getElementsByTagName('li');
-	var sum=0;
+	var sum=0;   //sum of slides
 
 	for(var i=0 ; i < rows.length ; i++){
 		var cols=rows.item(i).getElementsByClassName('slide');
 
 		for(var j=0; j < cols.length ; j++){
-			nav.innerHTML+="<li></li>";
+			nav.innerHTML+="<li></li>"; //add li's related to slides
 			cols.item(j).style.backgroundColor=rndColor();
 		}
-		nav.innerHTML+="<div class='badboy'></div>";
-		rows.item(i).innerHTML+="<div class='badboy'></div>";
+		nav.innerHTML+="<div class='badboy'></div>";          //add badboy to end of the row in li's
+		rows.item(i).innerHTML+="<div class='badboy'></div>"; //add badboy to end of the row
 	}
 
 	for(var i=0 ; i < rows.length ; i++){

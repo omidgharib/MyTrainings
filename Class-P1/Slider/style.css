@@ -2,6 +2,7 @@ div.container {
 	background-color: #ccc;
 	width :950px;
 	height: 600px;
+	margin-top: 10px;
 }
 
 div.trainer {

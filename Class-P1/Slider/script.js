@@ -3,6 +3,7 @@ window.onload=function(){
 	var trainer=document.getElementsByClassName('trainer').item(0);
 	var rows =trainer.getElementsByClassName('row');
 	var sum=0;   //sum of slides
+	 currentSlide=0; // current slide
 
 	//initial html's
 	var navNode=document.createElement('DIV'); //create div tag 
@@ -10,6 +11,7 @@ window.onload=function(){
 	container.parentNode.appendChild(navNode); // navNode with nav cssClass after container
 	var nav =document.getElementsByClassName('nav').item(0);
 	var	lists=nav.getElementsByTagName('li');
+	//currentSlide=lists.item(0);
 
 	for(var i=0 ; i < rows.length ; i++){
 		var cols=rows.item(i).getElementsByClassName('slide');
@@ -26,18 +28,24 @@ window.onload=function(){
 		var cols=rows.item(i).getElementsByClassName('slide');
 		
 		for(var j=0; j < cols.length ; j++){
-			(function(i,j){
+			(function(i,j,sum){
 				lists.item(sum+j).onclick=function(){
-					go2Slide(i,j);
+					go2Slide(i,j,sum+j);
 				}
-			})(i,j);
+			})(i,j,sum);
 		}
 		sum=sum+cols.length;
 	}
 
-	go2Slide=function(i,j){
+	go2Slide=function(i,j,obj){
 		trainer.style.top=(-600*i)+'px';
 		trainer.style.left=(-950*j)+'px';
+		// obj.className='active';
+		// currentSlide.className='';
+		// currentSlide=obj;
+		lists.item(currentSlide).className='';
+		lists.item(obj).className='active';
+		currentSlide=obj;
 	}
 
 	function rnd(a,b) {
@@ -51,4 +59,6 @@ window.onload=function(){
 	}
 		return c;
 	}
+
+	go2Slide(0,0,0);
 }

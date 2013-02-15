@@ -9,10 +9,22 @@ window.onload=function(){
 	//initial html's
 	var navNode=document.createElement('DIV'); //create div tag 
 	navNode.className='nav'; // add nav class to navNode
+	var arrowsNodeUp=document.createElement('DIV');
+	var arrowsNodeDown=document.createElement('DIV');
+	var arrowsNodeLeft=document.createElement('DIV');
+	var arrowsNodeRight=document.createElement('DIV');
+	arrowsNodeUp.id='up';
+	arrowsNodeDown.id='down';
+	arrowsNodeLeft.id='left';
+	arrowsNodeRight.id='right';
+	slider.appendChild(arrowsNodeUp);
+	slider.appendChild(arrowsNodeDown); //add arrows but stupidity idea ever :) temporary
+	slider.appendChild(arrowsNodeLeft);
+	slider.appendChild(arrowsNodeRight);
+
 	morinji.appendChild(navNode); // navNode with nav cssClass after morinji
 	var nav =document.getElementsByClassName('nav').item(0);
 	var	lists=nav.getElementsByTagName('li');
-	//slider.innerHTML+="<div id='left'></div> <div id='right'></div> <div id='top'></div> <div id='bottom'></div>";  //add arrows to slider
 
 	for(var i=0 ; i < rows.length ; i++){
 		var cols=rows.item(i).getElementsByClassName('slide');
@@ -24,6 +36,8 @@ window.onload=function(){
 		nav.innerHTML+="<div class='clear'></div>";          //add clear to end of the row in li's
 		rows.item(i).innerHTML+="<div class='clear'></div>"; //add clear to end of the row
 	}
+
+	//slider.innerHTML+="<div id='left'></div> <div id='right'></div> <div id='up'></div> <div id='down'></div>";  //add arrows to slider doesnt work
 
 	for(var i=0 ; i < rows.length ; i++){
 		var cols=rows.item(i).getElementsByClassName('slide');

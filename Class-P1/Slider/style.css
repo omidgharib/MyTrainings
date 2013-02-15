@@ -1,5 +1,12 @@
+
+cover{*zoom:1;}
+.cover:before,.cover:after{content:" ";display:table}
+.cover:after{clear:both}
+.clear{clear:both;display:block;width:0 !important;height:0 !important;min-height:0 !important;min-width:0 !important;margin:0 !important;padding:0 !important;overflow:hidden}
+
 div.container{
-	margin-top: 10px;
+	width:950px;
+	margin: 10px auto 0;
 }
 
 div#morinji div#slider {
@@ -12,6 +19,7 @@ div#morinji div#slider {
 }
 
 div#morinji div.trainer {
+	position: absolute;
 	height : 9999px;
 	width  : 9999px;
 	-webkit-transition: all 800ms ease-in-out;

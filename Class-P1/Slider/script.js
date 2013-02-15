@@ -1,5 +1,6 @@
 window.onload=function(){
-	var container=document.getElementsByClassName('container').item(0);
+	var morinji=document.getElementById('morinji');
+	var slider=document.getElementById('slider');
 	var trainer=document.getElementsByClassName('trainer').item(0);
 	var rows =trainer.getElementsByClassName('row');
 	var sum=0;   //sum of slides
@@ -8,10 +9,10 @@ window.onload=function(){
 	//initial html's
 	var navNode=document.createElement('DIV'); //create div tag 
 	navNode.className='nav'; // add nav class to navNode
-	container.parentNode.appendChild(navNode); // navNode with nav cssClass after container
+	morinji.appendChild(navNode); // navNode with nav cssClass after morinji
 	var nav =document.getElementsByClassName('nav').item(0);
 	var	lists=nav.getElementsByTagName('li');
-	//currentSlide=lists.item(0);
+	//slider.innerHTML+="<div id='left'></div> <div id='right'></div> <div id='top'></div> <div id='bottom'></div>";  //add arrows to slider
 
 	for(var i=0 ; i < rows.length ; i++){
 		var cols=rows.item(i).getElementsByClassName('slide');
@@ -20,8 +21,8 @@ window.onload=function(){
 			nav.innerHTML+="<li></li>"; //add li's related to slides
 			cols.item(j).style.backgroundColor=rndColor();
 		}
-		nav.innerHTML+="<div class='badboy'></div>";          //add badboy to end of the row in li's
-		rows.item(i).innerHTML+="<div class='badboy'></div>"; //add badboy to end of the row
+		nav.innerHTML+="<div class='clear'></div>";          //add clear to end of the row in li's
+		rows.item(i).innerHTML+="<div class='clear'></div>"; //add clear to end of the row
 	}
 
 	for(var i=0 ; i < rows.length ; i++){
@@ -37,7 +38,7 @@ window.onload=function(){
 		sum=sum+cols.length;
 	}
 
-	go2Slide=function(i,j,obj){
+	;(go2Slide=function(i,j,obj){
 		trainer.style.top=(-600*i)+'px';
 		trainer.style.left=(-950*j)+'px';
 		// obj.className='active';
@@ -46,7 +47,7 @@ window.onload=function(){
 		lists.item(currentSlide).className='';
 		lists.item(obj).className='active';
 		currentSlide=obj;
-	}
+	})(0,0,0);
 
 	function rnd(a,b) {
 		return Math.floor(Math.random()*(b-a))+a;
@@ -59,6 +60,4 @@ window.onload=function(){
 	}
 		return c;
 	}
-
-	go2Slide(0,0,0);
 }

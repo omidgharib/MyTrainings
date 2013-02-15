@@ -1,17 +1,16 @@
 window.onload=function(){
-	var container=document.getElementsByClassName('container').item(0);
+	var morinji=document.getElementById('morinji');
 	var trainer=document.getElementsByClassName('trainer').item(0);
 	var rows =trainer.getElementsByClassName('row');
 	var sum=0;   //sum of slides
-	 currentSlide=0; // current slide
+	var currentSlide=0; // current slide
 
 	//initial html's
 	var navNode=document.createElement('DIV'); //create div tag 
 	navNode.className='nav'; // add nav class to navNode
-	container.parentNode.appendChild(navNode); // navNode with nav cssClass after container
+	morinji.appendChild(navNode); // navNode with nav cssClass after morinji
 	var nav =document.getElementsByClassName('nav').item(0);
 	var	lists=nav.getElementsByTagName('li');
-	//currentSlide=lists.item(0);
 
 	for(var i=0 ; i < rows.length ; i++){
 		var cols=rows.item(i).getElementsByClassName('slide');

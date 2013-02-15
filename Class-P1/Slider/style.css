@@ -1,11 +1,17 @@
-div.container {
+div.container{
+	margin-top: 10px;
+}
+
+div#morinji {
 	background-color: #ccc;
 	width :950px;
 	height: 600px;
 	margin-top: 10px;
+	position: relative;
+	overflow: hidden;
 }
 
-div.trainer {
+div#morinji div.trainer {
 	height : 9999px;
 	width  : 9999px;
 	-webkit-transition: all 800ms ease-in-out;
@@ -15,17 +21,17 @@ div.trainer {
 	        transition: all 800ms ease-in-out;
 }
 
-div.slide {
+div#morinji div.slide {
 	width : 950px;
 	height : 600px;
 	float : left;
 }
 
-div.row {
+div#morinji div.row {
 	width : 9999px;
 }
 
-div.nav {
+div#morinji div.nav {
 	position : fixed;
 	right : 30px;
 	bottom : 30px;
@@ -35,7 +41,7 @@ div.nav {
 	padding: 3px;
 }
 
-div.nav li {
+div#morinji div.nav li {
 	display: block;
 	width: 20px;
 	height: 15px;
@@ -55,9 +61,8 @@ div.nav li {
 	        transition: all 300ms ease-in-out;
 }
 
-div.nav li:hover,
-div.nav li.active {
+div#morinji div.nav li:hover,
+div#morinji div.nav li.active {
 	opacity: 1;
 	background-color: #FFF;
 }
-

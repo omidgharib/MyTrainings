@@ -75,8 +75,8 @@ div#morinji div.nav li.active {
 	background-color: #FFF;
 }
 
-div#morinji div#top,
-div#morinji div#bottom,
+div#morinji div#up,
+div#morinji div#down,
 div#morinji div#left,
 div#morinji div#right{
 	position: absolute;
@@ -91,20 +91,20 @@ div#morinji div#right{
 	        transition: opacity 300ms ease-in-out;
 }
 
-div#morinji div#slider:hover div#top,
-div#morinji div#slider:hover div#bottom,
+div#morinji div#slider:hover div#up,
+div#morinji div#slider:hover div#down,
 div#morinji div#slider:hover div#left,
 div#morinji div#slider:hover div#right{
 	opacity: 1;
 }
 
-div#morinji div#top {
+div#morinji div#up {
 	top :2px;
 	left : 45%;
 	background: url('images/arrow-up.png');
 }
 
-div#morinji div#bottom{
+div#morinji div#down{
 	bottom: 2px;
 	left: 45%;
 	background: url('images/arrow-down.png');

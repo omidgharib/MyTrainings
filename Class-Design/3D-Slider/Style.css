@@ -1,0 +1,105 @@
+div.container{
+	width: 600px;
+	min-height: 500px;
+	margin: 50px auto 0;
+	-webkit-perspective:1000px;
+
+}
+
+div.slider{
+	width: 200px;
+	min-height: 150px;
+	position:relative;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: all 900ms; 
+	-webkit-transform: rotateX(-3deg)
+}
+
+menu li{
+	width: 30px;
+	height: 20px;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #333;
+	float: left;
+	margin-left: 10px;
+}
+
+menu li:hover{
+	background-color: darkcyan;
+	border-radius: 20px;
+}
+
+div.frame{
+	width: 250px;
+	min-height: 150px;
+	position: absolute;
+	line-height: 100px;
+	text-align: center;
+	font-size: 50px;
+	font-weight: bold;
+	-webkit-transform-style: preserve-3d;
+}
+
+div.frame1{
+	-webkit-transform: rotateY(0deg) translateZ(300px);
+}
+
+div.frame2{ 
+	-webkit-transform: rotateY(45deg) translateZ(300px);
+}
+
+div.frame3{
+	-webkit-transform: rotateY(90deg) translateZ(300px);
+}
+
+div.frame4{
+	-webkit-transform: rotateY(135deg) translateZ(300px);
+}
+
+div.frame5{
+	-webkit-transform: rotateY(180deg) translateZ(300px);
+}
+
+div.frame6{
+	-webkit-transform: rotateY(225deg) translateZ(300px);
+}
+
+div.frame7{
+	-webkit-transform: rotateY(270deg) translateZ(300px);
+}
+
+div.frame8{
+	-webkit-transform: rotateY(315deg) translateZ(300px);
+}
+
+div.frame div.frontface,
+div.frame div.backface{
+	position: absolute;
+	width: inherit;
+	min-height: inherit;
+	top: 0;
+	left: 0;
+	border-radius: 5px;
+	-webkit-transition:all 2s;
+	-webkit-backface-visibility:hidden;
+}
+
+div.frame div.frontface{
+	background-color: darkmagenta;
+	color: white;
+}
+
+div.frame div.backface{
+	background-color: darkred;
+	color: black;
+	-webkit-transform:rotateX(180deg);
+}
+
+div.frame:hover div.frontface{
+	-webkit-transform:rotateX(-180deg);
+}
+
+div.frame:hover div.backface{
+	-webkit-transform:rotate(0deg);
+}

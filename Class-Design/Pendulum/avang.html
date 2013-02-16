@@ -1,0 +1,83 @@
+<html>
+<head>
+	<title>.:Avang:.</title>
+	<style type="text/css">
+		@-webkit-keyframes avangs{
+			0%   {-webkit-transform: rotate(85deg);}
+			50%  {-webkit-transform: rotate(-85deg);}
+			100% {-webkit-transform: rotate(85deg);}
+		}
+
+		div.container{
+			margin:0 auto;
+		}
+
+		div.roof{
+			margin-top: 20px;
+			width: auto;
+			min-height: 10px;
+			background-color: black;
+			position: relative;
+		}
+
+		div.top{
+			width: 15px;
+			height: 8px;
+			position: absolute;
+			bottom: -7px;
+			left: 49.5%;
+			border-bottom-left-radius: 50%;
+			border-bottom-right-radius: 50%;
+			background-color: darkmagenta;
+		}
+
+		div.avang{
+			width:30px;
+			position: relative;
+			min-:height 200px;
+			margin: 0 auto;
+			-webkit-animation-name:avangs;
+			-webkit-animation-duration:6s;
+			-webkit-transform-origin:top;
+			-webkit-transition-timing-function:cubic-bezier(0,0,0,1);
+			-webkit-animation-iteration-count:infinite;
+		}
+
+		div.avang:hover{
+			-webkit-animation-play-state:paused;
+		}
+
+		div.handle{
+			width: 2px;
+			position: absolute;
+			top: 0;
+			left: 14px;
+			right: 14px;
+			background-color: darkmagenta;
+			height: 150px;
+		}
+
+		div.ball{
+			position: absolute;
+			top: 150px;
+			width: 30px;
+			height: 30px;
+			border-radius: 15px;
+			background-color: darkmagenta;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="roof">
+			<div class="top"></div>
+		</div>
+		<div class="avang">
+			<div class="handle">
+			</div>
+			<div class="ball">
+			</div>
+		</div>
+	</div>	
+</body>
+</html>

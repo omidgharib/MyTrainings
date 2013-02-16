@@ -1,9 +1,12 @@
 window.onload=function(){
+	var morinji=document.getElementById('morinji');
 	var slider=document.getElementById('slider');
 	var trainer=document.getElementsByClassName('trainer').item(0);
 	var rows =trainer.getElementsByClassName('row');
 	var sum=0;   //sum of slides
-	 currentSlide=0; // current slide
+	 currentSlide=0; // current slide current p of slide
+	 currentSlideI=0;
+	 currentSlideJ=0;
 
 	//initial html's
 	var navNode=document.createElement('DIV'); //create div tag 
@@ -12,10 +15,10 @@ window.onload=function(){
 	var arrowsNodeDown=document.createElement('DIV');
 	var arrowsNodeLeft=document.createElement('DIV');
 	var arrowsNodeRight=document.createElement('DIV');
-	arrowsNodeUp.id='up';
-	arrowsNodeDown.id='down';
-	arrowsNodeLeft.id='left';
-	arrowsNodeRight.id='right';
+	arrowsNodeUp.className='up';
+	arrowsNodeDown.className='down';
+	arrowsNodeLeft.className='left';
+	arrowsNodeRight.className='right';
 	slider.appendChild(arrowsNodeUp);
 	slider.appendChild(arrowsNodeDown); //add arrows but stupidity idea ever :) temporary
 	slider.appendChild(arrowsNodeLeft);
@@ -42,7 +45,7 @@ window.onload=function(){
 		var cols=rows.item(i).getElementsByClassName('slide');
 		
 		for(var j=0; j < cols.length ; j++){
-			(function(i,j,sum){
+			;(function(i,j,sum){
 				lists.item(sum+j).onclick=function(){
 					go2Slide(i,j,sum+j);
 				}
@@ -54,24 +57,53 @@ window.onload=function(){
 	;(go2Slide=function(i,j,p){
 		trainer.style.top=(-600*i)+'px';
 		trainer.style.left=(-950*j)+'px';
-		// obj.className='active';
-		// currentSlide.className='';
-		// currentSlide=obj;
 		lists.item(currentSlide).className='';
 		lists.item(p).className='active';
 		currentSlide=p;
-		arrowsIconExistence(i,j); //just for left
+		currentSlideI=i;
+		currentSlideJ=j;
+		arrowsIconExistence(i,j); //check for none or blocking display of arrow icons
 	})(0,0,0);
 
+	upSlide = function(){
+		go2Slide(currentSlideI-1,currentSlideJ,bringBackPlaceInList(currentSlideI-1,currentSlideJ));
+	}
+
+	downSlide = function(){
+		go2Slide(currentSlideI+1,currentSlideJ,bringBackPlaceInList(currentSlideI+1,currentSlideJ));
+	}
+
+	leftSlide=function() {
+		go2Slide(currentSlideI,currentSlideJ-1,currentSlide-1);
+	}
+
+	rightSlide=function() {
+		go2Slide(currentSlideI,currentSlideJ+1,currentSlide+1);
+	}
+
+	arrowsNodeUp.onclick=upSlide; 
+	arrowsNodeDown.onclick=downSlide; 
+	arrowsNodeLeft.onclick=leftSlide; 
+	arrowsNodeRight.onclick=rightSlide; 
+
+	function bringBackPlaceInList(row,col) {
+		var p=0;
+		for(var i=0 ; i < row ; i++) {
+		var cols=rows.item(i).getElementsByClassName('slide');
+			p+=cols.length;
+		}
+		return p+col;
+	}
+
 	function arrowsIconExistence(i,j) { 
-		if(checkNeighborSlides(i,j-1)==false){document.getElementById('left').style.display='none';}
-			else{document.getElementById('left').style.display='block';}
-		if(checkNeighborSlides(i,j+1)==false){document.getElementById('right').style.display='none';}
-			else{document.getElementById('right').style.display='block';}
-		if(checkNeighborSlides(i-1,j)==false){document.getElementById('up').style.display='none';}
-			else{document.getElementById('up').style.display='block';}
-		if(checkNeighborSlides(i+1,j)==false){document.getElementById('down').style.display='none';}
-			else{document.getElementById('down').style.display='block';}
+		if(checkNeighborSlides(i,j-1)==false){morinji.getElementsByClassName('left').item(0).style.display='none';}
+			else{morinji.getElementsByClassName('left').item(0).style.display='block';}
+		if(checkNeighborSlides(i,j+1)==false){morinji.getElementsByClassName('right').item(0).style.display='none';}
+			else{morinji.getElementsByClassName('right').item(0).style.display='block';}
+		if(checkNeighborSlides(i-1,j)==false){morinji.getElementsByClassName('up').item(0).style.display='none';}
+			else{morinji.getElementsByClassName('up').item(0).style.display='block';}
+		if(checkNeighborSlides(i+1,j)==false){morinji.getElementsByClassName('down').item(0).style.display='none';}
+			else{morinji.getElementsByClassName('down').item(0).style.display='block';}
 	}
 
 	function checkNeighborSlides(i,j) {

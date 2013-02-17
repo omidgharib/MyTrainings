@@ -9,7 +9,7 @@ div.container{
 	margin: 10px auto 0;
 }
 
-div#morinji div#slider {
+div#morinji div.slider {
 	background-color: #ccc;
 	width :950px;
 	height: 600px;
@@ -91,10 +91,10 @@ div#morinji div.right{
 	        transition: opacity 300ms ease-in-out;
 }
 
-div#morinji div#slider:hover div.up,
-div#morinji div#slider:hover div.down,
-div#morinji div#slider:hover div.left,
-div#morinji div#slider:hover div.right{
+div#morinji div.slider:hover div.up,
+div#morinji div.slider:hover div.down,
+div#morinji div.slider:hover div.left,
+div#morinji div.slider:hover div.right{
 	opacity: 1;
 }
 

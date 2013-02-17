@@ -1,6 +1,6 @@
 window.onload=function(){
 	var morinji=document.getElementById('morinji');
-	var slider=document.getElementById('slider');
+	var slider=document.getElementsByClassName('slider').item(0);
 	var trainer=document.getElementsByClassName('trainer').item(0);
 	var rows =trainer.getElementsByClassName('row');
 	var sum=0;   //sum of slides

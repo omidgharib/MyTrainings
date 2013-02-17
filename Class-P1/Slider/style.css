@@ -5,15 +5,14 @@ cover{*zoom:1;}
 .clear{clear:both;display:block;width:0 !important;height:0 !important;min-height:0 !important;min-width:0 !important;margin:0 !important;padding:0 !important;overflow:hidden}
 
 div.container{
-	width:950px;
+	width:950px;  
 	margin: 10px auto 0;
 }
 
 div#morinji div.slider {
 	background-color: #ccc;
-	width :950px;
-	height: 600px;
-	margin-top: 10px;
+	width :950px; 		/* default size */
+	height: 600px;   	/* default size */
 	position: relative;
 	overflow: hidden;
 }
@@ -30,8 +29,8 @@ div#morinji div.trainer {
 }
 
 div#morinji div.slide {
-	width : 950px;
-	height : 600px;
+	width : 950px;			/* default size */
+	height : 600px;			/* default size */
 	float : left;
 }
 

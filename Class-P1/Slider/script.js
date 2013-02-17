@@ -89,7 +89,6 @@ window.onload=function(){
  	test=document.getElementById('test');
 
 	 document.onkeydown=function(e){
-	 	test.value=e.keyCode;
 	 	if (e.keyCode=='37' && checkNeighborSlides(currentSlideI,currentSlideJ-1)) {leftSlide();}
 	 	if (e.keyCode=='38' && checkNeighborSlides(currentSlideI-1,currentSlideJ)) {upSlide();}
 	 	if (e.keyCode=='39' && checkNeighborSlides(currentSlideI,currentSlideJ+1)) {rightSlide();}

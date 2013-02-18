@@ -56,8 +56,8 @@ window.onload=function(){
 	 		else{
 	 			width=size.substr(0,size.indexOf(','));
 	 			height=size.substr(size.indexOf(',')+1);
-	 			if (width=='full') width=1340;
-	 			if (height=='full') height=720;
+	 			if (width=='full') width=screen.availWidth-80;
+	 			if (height=='full') height=screen.availHeight-50;
 	 		}
 	 	}
 	 		slider.style.width=width+'px';
@@ -67,6 +67,18 @@ window.onload=function(){
 	 			slides.item(i).style.width=width+'px';
 	 			slides.item(i).style.height=height+'px';	
 	 		}
+ 	})();
+
+ 	;(function(){
+		var nav =morinji.getElementsByClassName('nav').item(0);
+ 		var dataNav=morinji.getAttribute("data-nav");
+ 		if (dataNav!=null) {
+ 			if(dataNav=='Right'||dataNav=='right'||dataNav=='') nav.style.right='1%';
+ 			if(dataNav=='Left'||dataNav=='left') nav.style.left='1%';
+ 		}
+ 		else {
+ 			nav.remove();
+ 		}
  	})();
 
  	go2Slide=function(i,j,p){

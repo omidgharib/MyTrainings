@@ -14,12 +14,14 @@ window.onload=function(){
 	 	size=morinji.getAttribute("data-size");
 	 	if(size!=null){
 	 		if(size=='full'){
-	 			width=1350;  //not true just for test 
+	 			width=1340;  //not true just for test 
 	 			height=720;
 	 		}
 	 		else{
 	 			width=size.substr(0,size.indexOf(','));
 	 			height=size.substr(size.indexOf(',')+1);
+	 			if (width=='full') width=1340;
+	 			if (height=='full') height=720;
 	 		}
 	 	}
 	 		slider.style.width=width+'px';
@@ -31,9 +33,12 @@ window.onload=function(){
 	 		}
 	 })();
 
-	 ;(function()){
-	 	nav=morinji.getAttribute("data-nav");
-	 }
+	 // ;(function()){
+	 // 	var arrows=morinji.getAttribute("data-arrows");
+	 // 	if(arrows!=null){
+
+	 // 	}
+	 // }
 
 	//initial html's
 	var navNode=document.createElement('DIV'); //create div tag 

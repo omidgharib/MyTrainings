@@ -39,9 +39,9 @@ div#morinji div.row {
 }
 
 div#morinji div.nav {
-	position : fixed;
-	right : 30px;
-	bottom : 30px;
+	position : absolute;
+	right : 2%;
+	bottom : 2%;
 	background-color: #aaa;
 	-webkit-border-radius: 5px;
 	        border-radius: 5px;
@@ -99,24 +99,24 @@ div#morinji div.slider:hover div.right{
 
 div#morinji div.up {
 	top :2px;
-	left : 45%;
+	left : 40%;
 	background: url('images/arrow-up.png');
 }
 
 div#morinji div.down{
 	bottom: 2px;
-	left: 45%;
+	left: 40%;
 	background: url('images/arrow-down.png');
 }
 
 div#morinji div.left{
-	top: 45%;
+	top: 40%;
 	left: 2px;
 	background: url('images/arrow-left.png');
 }
 
 div#morinji div.right{
-	top: 45%;
+	top: 40%;
 	right: 2px;
 	background: url('images/arrow-right.png');
 }

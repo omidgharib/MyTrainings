@@ -1,4 +1,3 @@
-
 cover{*zoom:1;}
 .cover:before,.cover:after{content:" ";display:table}
 .cover:after{clear:both}
@@ -7,6 +6,10 @@ cover{*zoom:1;}
 div.container{
 	width:950px;  
 	margin: 10px auto 0;
+}
+
+div#morinji {
+	position: absolute;
 }
 
 div#morinji div.slider {
@@ -40,8 +43,7 @@ div#morinji div.row {
 
 div#morinji div.nav {
 	position : absolute;
-	right : 2%;
-	bottom : 2%;
+	bottom : 1%;
 	background-color: #aaa;
 	-webkit-border-radius: 5px;
 	        border-radius: 5px;

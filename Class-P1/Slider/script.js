@@ -1,3 +1,9 @@
+/*
+ OmidGharib - MORiNJi ver 0.3 trial
+ Copyright (c) 2013 Omid Gharib .
+ https://github.com/omidgharib/MORiNJi
+ fork me on github.
+*/
 window.onload=function(){
 	var morinji=document.getElementById('morinji');
 	var slider=document.getElementsByClassName('slider').item(0);

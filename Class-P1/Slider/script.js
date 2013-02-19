@@ -56,8 +56,8 @@ window.onload=function(){
 	 	size=morinji.getAttribute("data-size");
 	 	if(size!=null){
 	 		if(size=='full'){
-	 			width=1340;  //not true just for test 
-	 			height=720;
+	 			width=screen.availWidth-80;  //not true just for test 
+	 			height=screen.availHeight-50;
 	 		}
 	 		else{
 	 			width=size.substr(0,size.indexOf(','));

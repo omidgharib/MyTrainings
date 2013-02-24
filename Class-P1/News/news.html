@@ -9,6 +9,11 @@
 		.cover:after{clear:both}
 		.clear{clear:both;display:block;width:0 !important;height:0 !important;min-height:0 !important;min-width:0 !important;margin:0 !important;padding:0 !important;overflow:hidden}
 
+		div.containers {
+			width: 100%;
+			border: 1px solid brown; 
+		}
+
 		div.container{
 			width: 950px;
 			min-height: 300px;
@@ -66,13 +71,16 @@
 		}
 
 		div#news li > span > span{
-			width: 150px;
+			width: 190px;
 			display: in;
 			font-size: 12px;
 			line-height: 12px;
 			padding: 3px;
 			display: inline-block;
 			word-wrap: break-word;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 
 

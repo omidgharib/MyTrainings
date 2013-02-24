@@ -60,10 +60,11 @@ window.onload=function(){
 	 			height=screen.availHeight-50;
 	 		}
 	 		else{
-	 			width=size.substr(0,size.indexOf(','));
-	 			height=size.substr(size.indexOf(',')+1);
-	 			if (width=='full') width=screen.availWidth-80;
-	 			if (height=='full') height=screen.availHeight-50;
+	 			size=size.split(',');
+	 			width=size[0];
+	 			height=size[1];
+	 			if (width=='full') width=screen.availWidth-50;
+	 			if (height=='full') height=screen.availHeight-120;
 	 		}
 	 	}
 	 		slider.style.width=width+'px';
@@ -126,8 +127,8 @@ window.onload=function(){
  				icons='icons';
 	 		}
 	 		else {
-	 			var keys=arrows.substr(0,arrows.indexOf(','));
- 				icons=arrows.substr(arrows.indexOf(',')+1);
+	 			var keys=arrows.split(',')[0];
+ 				icons=arrows.split(',')[1];
 	 		}
 	 		if (keys=='keys') {
 				document.onkeydown=function(e){

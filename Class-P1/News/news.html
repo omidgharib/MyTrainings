@@ -9,11 +9,6 @@
 		.cover:after{clear:both}
 		.clear{clear:both;display:block;width:0 !important;height:0 !important;min-height:0 !important;min-width:0 !important;margin:0 !important;padding:0 !important;overflow:hidden}
 
-		div.containers {
-			width: 100%;
-			border: 1px solid brown; 
-		}
-
 		div.container{
 			width: 950px;
 			min-height: 300px;
@@ -31,6 +26,7 @@
 
 		div#news li {
 			width: 230px;
+			position: relative;
 			display: block;
 			list-style: none;
 			border-bottom: 1px solid #666;
@@ -72,7 +68,7 @@
 
 		div#news li > span > span{
 			width: 190px;
-			display: in;
+			display: inline-block;
 			font-size: 12px;
 			line-height: 12px;
 			padding: 3px;
@@ -81,6 +77,15 @@
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
+		}
+
+		div#news li:hover div.newscontent {
+			width: 300px;
+			min-height: 350px;
+			position: absolute;
+			top: 0;
+			left: 245px;
+			border: 1px solid green;
 		}
 
 
@@ -95,6 +100,7 @@
 					<h3>test</h3>
 					<span>ahwkfjhrwkgbfteughtihgoirhgrtjbgiorhbrtb</span>
 				</span>
+				<div class="newscontent"></div>
 			</li>
 			<li>
 				<img src="" alt="">
@@ -104,6 +110,7 @@
 						dbvkjbrdjbvgkrdjbgkjrdbkjvbrdkjgvbrkbgkrdjhgrtjbgiorhbrtb
 					</span>
 				</span>
+				<div class="newscontent"></div>
 			</li>
 			<li>
 				<img src="" alt="">
@@ -111,6 +118,7 @@
 					<h3>test</h3>
 					<span>ahwkfjhrwkgbfteughtihgoirhgrtjbgiorhbrtb</span>
 				</span>
+				<div class="newscontent"></div>
 			</li>
 			<li>
 				<img src="" alt="">
@@ -118,6 +126,7 @@
 					<h3>test</h3>
 					<span>Omid gahrib is going to.....</span>
 				</span>
+				<div class="newscontent"></div>
 			</li>
 			<li>
 				<img src="" alt="">
@@ -125,6 +134,7 @@
 					<h3>test</h3>
 					<span>ahwkfjhrwkgbfteughtihgoirhgrtjbgiorhbrtb</span>
 				</span>
+				<div class="newscontent"></div>
 			</li>
 		</div>
 	</div>								

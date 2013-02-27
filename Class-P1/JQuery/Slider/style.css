@@ -1,0 +1,57 @@
+.cover{*zoom:1;}
+.cover:before,.cover:after{content:" ";display:table}
+.cover:after{clear:both}
+.clear{clear:both;display:block;width:0 !important;height:0 !important;min-height:0 !important;min-width:0 !important;margin:0 !important;padding:0 !important;overflow:hidden}
+
+div.container{
+	width: 950px;
+	margin: 0 auto;
+	min-height: 600px;
+	border: 1px solid #333;
+}
+
+div#slider {
+	width: 940px;
+	position: relative;
+	margin-left: 5px;
+	height: 450px;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #eee;
+}
+
+div#slider div.train {
+	width: 9999px;
+	height: inherit;
+}
+
+div#slider div.train div.slide {
+	width: 940px;
+	float: left;
+	height: inherit;
+}
+
+div#left {
+	position: absolute;
+	top: 40%;
+	left: 0;
+	width: 78px;
+	height: 100px;
+	background-image: url('images/left-arrow.png');
+	cursor: pointer;
+	-webkit-transition: all 300ms;
+	   -moz-transition: all 300ms;
+	    -ms-transition: all 300ms;
+	     -o-transition: all 300ms;
+	        transition: all 300ms;
+}
+
+div#right {
+	position: absolute;
+	top: 40%;
+	right: 0;
+	width: 78px;
+	height: 100px;
+	background-image: url('images/right-arrow.png');
+	cursor: pointer;
+}

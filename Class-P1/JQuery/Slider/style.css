@@ -7,7 +7,6 @@ div.container{
 	width: 950px;
 	margin: 0 auto;
 	min-height: 600px;
-	border: 1px solid #333;
 }
 
 div.slideshow {
@@ -20,7 +19,6 @@ div#slider {
 	margin-left: 5px;
 	height: 500px;
 	overflow: hidden;
-	border: 1px solid #ccc;
 	background-color: #eee;
 }
 

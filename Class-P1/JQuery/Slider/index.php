@@ -12,21 +12,28 @@
 			<div id="slider">
 				<div class="train cover">
 					<?php
-						function getBackFiles($path,$format) {
+						function imageSizeChecking($img,$sizeWidth,$sizeHeight){
+							list($width, $height, $type, $attr)=getimagesize($img);
+							if ($width==$sizeWidth&&$height==$sizeHeight) return true;
+							else return  false;
+						}
+
+						function getBackImages($path,$format,$width,$height) {
 							$files=scandir($path);
 							$selectedFiles=array();
 							foreach ($files as $file ) {
 								$temp=explode('.', $file);
 								if (end($temp)==$format) {
-									$selectedFiles[]=$file;
+									if (imageSizeChecking("$path/$file",$width,$height)) {
+										$selectedFiles[]=$file;
+									}
 								}
 							}
 							return $selectedFiles;
-							//getimagesize(filename)
 						}
 
 						 $img_path='./images/slides';
-						 $imgs=getBackFiles($img_path,'jpg');
+						 $imgs=getBackImages($img_path,'jpg',940,500);
 						 foreach ($imgs as $img ) {
 						 	echo "<div class='slide' style=\"background-image: url('$img_path/$img');\"></div>";
 						 }

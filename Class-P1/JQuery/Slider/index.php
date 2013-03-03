@@ -12,13 +12,12 @@
 			<div id="slider">
 				<div class="train cover">
 					<?php
-
 						function getBackFiles($path,$format) {
 							$files=scandir($path);
 							$selectedFiles=array();
 							foreach ($files as $file ) {
 								$temp=explode('.', $file);
-								if (strtolower(end($temp))==$format) {
+								if (end($temp)==$format) {
 									$selectedFiles[]=$file;
 								}
 							}
@@ -26,15 +25,11 @@
 							//getimagesize(filename)
 						}
 
-						 $slideLen=0;
 						 $img_path='./images/slides';
 						 $imgs=getBackFiles($img_path,'jpg');
 						 foreach ($imgs as $img ) {
 						 	echo "<div class='slide' style=\"background-image: url('$img_path/$img');\"></div>";
-						 	$slideLen++;
 						 }
-
-
 					?>
 
 				</div>
@@ -47,7 +42,7 @@
 			</div>
 			<ul class="btns cover">
 				<?php
-					for($i=0 ; $i<$slideLen ; $i++){
+					for($i=0 ; $i<count($imgs) ; $i++){
 						echo "<li></li>";
 					}
 				?>

@@ -19,6 +19,9 @@ div#slider {
 	margin-left: 5px;
 	height: 500px;
 	overflow: hidden;
+	background-image: url('./images/loading.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
 	background-color: #eee;
 }
 

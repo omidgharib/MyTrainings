@@ -3,7 +3,7 @@ $(document).ready(function(){
 	train=$("div#slider > div.train"),
 	slides=$("div#slider > div.train > div.slide"),
 	lists=$("div.slideshow > ul.btns li"),
-	autoPlayDegree=0;
+	autoPlayProgress=0;
 	currentslide=0;
 	autoPlayLoading=false;
 	autoPlayIv=false;
@@ -34,7 +34,7 @@ $(document).ready(function(){
 			}
 			else {
 				$("div#slider > div.loading > span").removeClass('play').addClass('pause');
-				autoPlayIv=setTimeout(nextSlideAuto,4000-(100*autoPlayDegree/9));
+				autoPlayIv=setTimeout(nextSlideAuto,4000-(100*autoPlayProgress/9));
 				drawLoadingCircle();
 			}
 		}
@@ -54,9 +54,9 @@ $(document).ready(function(){
 
 	function drawLoadingCircle() {
 		if (autoPlayIv) {
-			autoPlayDegree+=9;
-			autoPlayDegree%=360;
-			drawCircle(autoPlayDegree);
+			autoPlayProgress+=9;
+			autoPlayProgress%=360;
+			drawCircle(autoPlayProgress);
 			autoPlayLoading=setTimeout(drawLoadingCircle,100);
 		}
 		else clearTimeout(autoPlayLoading);

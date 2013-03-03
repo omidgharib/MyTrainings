@@ -64,6 +64,7 @@ $(document).ready(function(){
 
 	nextSlideAuto = function(){
 		go2slide(currentslide+1);
+		autoPlayProgress=0; //reset the loading progress
 		autoPlayIv=setTimeout(nextSlideAuto,4000);
 	}
 

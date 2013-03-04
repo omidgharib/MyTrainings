@@ -1,0 +1,129 @@
+/*
+ OmidGharib - MORiNJi ver 0.3 trial
+ Copyright (c) 2013 Omid Gharib .
+ https://github.com/omidgharib/MORiNJi
+ fork me on github.
+*/
+cover{*zoom:1;}
+.cover:before,.cover:after{content:" ";display:table}
+.cover:after{clear:both}
+.clear{clear:both;display:block;width:0 !important;height:0 !important;min-height:0 !important;min-width:0 !important;margin:0 !important;padding:0 !important;overflow:hidden}
+
+div.container{
+	margin: 0 auto;
+}
+
+div#morinji {
+	position: absolute;
+}
+
+div#morinji div.slider {
+	background-color: #ccc;
+	width :950px; 		/* default size */
+	height: 600px;   	/* default size */
+	position: relative;
+	overflow: hidden;
+}
+
+div#morinji div.trainer {
+	position: absolute;
+	height : 9999px;
+	width  : 9999px;
+	-webkit-transition: all 800ms ease-in-out;
+	   -moz-transition: all 800ms ease-in-out;
+	    -ms-transition: all 800ms ease-in-out;
+	     -o-transition: all 800ms ease-in-out;
+	        transition: all 800ms ease-in-out;
+}
+
+div#morinji div.slide {
+	width : 950px;			/* default size */
+	height : 600px;			/* default size */
+	float : left;
+}
+
+div#morinji div.row {
+	width : 9999px;
+}
+
+div#morinji div.nav {
+	position : absolute;
+	bottom : 1%;
+	background-color: #aaa;
+	-webkit-border-radius: 5px;
+	        border-radius: 5px;
+	padding: 3px;
+}
+
+div#morinji div.nav li {
+	display: block;
+	width: 20px;
+	height: 15px;
+	list-style: none;
+	text-decoration: none;
+	float : left;
+	margin: 2px;
+	-webkit-border-radius: 2px;
+	        border-radius: 2px;
+	background-color: #ddd;
+	opacity: 0.7;
+	cursor: pointer;
+	-webkit-transition: all 300ms ease-in-out;
+	   -moz-transition: all 300ms ease-in-out;
+	    -ms-transition: all 300ms ease-in-out;
+	     -o-transition: all 300ms ease-in-out;
+	        transition: all 300ms ease-in-out;
+}
+
+div#morinji div.nav li:hover,
+div#morinji div.nav li.active {
+	opacity: 1;
+	background-color: #FFF;
+}
+
+div#morinji div.up,
+div#morinji div.down,
+div#morinji div.left,
+div#morinji div.right{
+	position: absolute;
+	width : 64px;
+	height :64px;
+	cursor: pointer;
+	opacity: 0;
+	-webkit-transition: opacity 300ms ease-in-out;
+	   -moz-transition: opacity 300ms ease-in-out;
+	    -ms-transition: opacity 300ms ease-in-out;
+	     -o-transition: opacity 300ms ease-in-out;
+	        transition: opacity 300ms ease-in-out;
+}
+
+div#morinji div.slider:hover div.up,
+div#morinji div.slider:hover div.down,
+div#morinji div.slider:hover div.left,
+div#morinji div.slider:hover div.right{
+	opacity: 1;
+}
+
+div#morinji div.up {
+	top :2px;
+	left : 40%;
+	background: url('images/arrow-up.png');
+}
+
+div#morinji div.down{
+	bottom: 2px;
+	left: 40%;
+	background: url('images/arrow-down.png');
+}
+
+div#morinji div.left{
+	top: 40%;
+	left: 2px;
+	background: url('images/arrow-left.png');
+}
+
+div#morinji div.right{
+	top: 40%;
+	right: 2px;
+	background: url('images/arrow-right.png');
+}

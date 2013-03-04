@@ -56,15 +56,17 @@ window.onload=function(){
 	 	size=morinji.getAttribute("data-size");
 	 	if(size!=null){
 	 		if(size=='full'){
-	 			width=screen.availWidth-80;  //not true just for test 
-	 			height=screen.availHeight-50;
+	 			//width=screen.availWidth-80;  //not true just for test 
+	 			//height=screen.availHeight-50;
+	 			width=document.width-10;
+	 			height=document.height-10;
 	 		}
 	 		else{
 	 			size=size.split(',');
 	 			width=size[0];
 	 			height=size[1];
-	 			if (width=='full') width=screen.availWidth-50;
-	 			if (height=='full') height=screen.availHeight-120;
+	 			if (width=='full') width=document.width-10;
+	 			if (height=='full') height=document.height-10;
 	 		}
 	 	}
 	 		slider.style.width=width+'px';

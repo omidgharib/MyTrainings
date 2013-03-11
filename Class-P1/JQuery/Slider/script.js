@@ -41,12 +41,12 @@ $(document).ready(function(){
 	}
 
 	function drawCircle(deg){
-		c.height=40; //clear
+		ctx.clearRect(0,0,40,40);
 		ctx=c.getContext("2d");
 		ctx.beginPath();
 		ctx.arc(20,20,15,-.5*Math.PI,(deg-90)*(Math.PI/180));
 		ctx.lineWidth=5;
-		ctx.fillStyle='#222';
+		ctx.strokeStyle='#222';
 		ctx.globalAlpha=0.8;
 		ctx.stroke();
 		ctx.closePath();

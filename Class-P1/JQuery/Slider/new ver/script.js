@@ -8,6 +8,7 @@ $(function(){
 		train=$("div#slider > div.train"),
 		slides=$("div#slider > div.train > div.slide"),
 		lists=$("div.slideshow > ul.btns li"),
+		playAndPauseBtn=$("div#slider > div.loading > span"),
 		canvas =document.getElementById("loading"),
 		ctx = canvas.getContext("2d"),
 		d2r = Math.PI/180,
@@ -66,8 +67,8 @@ $(function(){
 		currentDegree += Math.getInRange(now-lastDraw,[0,aniDue,0,360]);
 		if(currentDegree>=360){
 			currentDegree%=360;
-			console.log('nextSlide');
-			console.log(currentDegree);
+			//console.log('nextSlide');
+			//console.log(currentDegree);
 			go2slide(currentslide+1);
 		}
 
@@ -79,11 +80,13 @@ $(function(){
 		if(iv) return;
 		lastDraw = Date.now();
 		iv = setInterval(circleAni,1000/60);
+		playAndPauseBtn.removeClass('play').addClass('pause');
 	}
 
 	stopInt = function(){
 		clearInterval(iv);
 		iv=0;
+		playAndPauseBtn.removeClass('pause').addClass('play');
 	}
 
 	$("div#slider > div.next").click(function(){
@@ -101,13 +104,11 @@ $(function(){
 		go2slide($(this).index());
 	});
 
-	$("div#slider > div.loading > span").click(function(){
+	playAndPauseBtn.click(function(){
 		if ($(this).hasClass('pause')) {
-			$(this).removeClass('pause').addClass('play');
 			stopInt();
 		}
 		else{
-			$(this).removeClass('play').addClass('pause');
 			startInt();
 		}
 	});

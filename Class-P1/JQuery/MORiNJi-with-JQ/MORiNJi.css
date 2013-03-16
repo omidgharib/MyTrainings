@@ -29,11 +29,6 @@ div#morinji div.trainer {
 	position: absolute;
 	height : 9999px;
 	width  : 9999px;
-	-webkit-transition: all 800ms ease-in-out;
-	   -moz-transition: all 800ms ease-in-out;
-	    -ms-transition: all 800ms ease-in-out;
-	     -o-transition: all 800ms ease-in-out;
-	        transition: all 800ms ease-in-out;
 }
 
 div#morinji div.slide {

@@ -24,7 +24,9 @@ $(document).ready(function(){
 	 	lockAnimationDue = 200,								// due of lock sliding animation
 	 	lockValueVibre = 100;								// distance for sliding to the lock area
 
-  	init=function(){ 
+
+	 // create navigator  
+  	navCreate=function(){ 
 		morinji.append("<div class='nav'></div>"); 				// append div.nav after morinji (slider navigator)
 		nav = $("div#morinji > div.nav");
 		for(var i=0 ; i < rows.length ; i++){
@@ -143,18 +145,18 @@ $(document).ready(function(){
 		size = morinji.attr('data-size');
 		//console.log(size);
 		if(size!=null){
-	 		if(size=='full'){
+	 		if(size=='full'){	//if data-size set with full make the width and height maximum depends on LCD resolution and browser
 	 			width = $(window).width(); 
 	 			height= $(window).height();
 	 		}
 	 		else{
 	 			width=size.substr(0,size.indexOf(','));
 	 			height=size.substr(size.indexOf(',')+1);
-	 			if (width=='full')  width = $(window).width(); 
-	 			if (height=='full') height= $(window).height();
+	 			if (width=='full')  width = $(window).width(); 	//make the width maximum depends on the LCD resolution
+	 			if (height=='full') height= $(window).height();	//make the height maximum depends on the LCD resolution
 	 		}
 	 	}
-	 		slider.css({			// set width and height to div.slider and all the slides
+	 		slider.css({		// set width and height to div.slider and all the slides
 	 			"width" : width,
 	 			"height": height
 	 		});
@@ -244,5 +246,6 @@ $(document).ready(function(){
 		return c;
 	}
 
-	fixZoom(width,height,0,0);				// Call the fixZoom
+	go2Slide(0,0,0);					// reset goto first slide	
+	fixZoom(width,height,0,0);			// Call the fixZoom
 });

@@ -19,7 +19,10 @@ $(document).ready(function(){
  		icons = null,										// 
 	 	currentSlide  = 0, 									// current slide (slide number) 
 	 	I = 0,												// current row position of slide
-	 	J = 0;												// current column position of slide
+	 	J = 0,												// current column position of slide
+	 	animationDue = 700,									// due of sliding animation
+	 	lockAnimationDue = 200,								// due of lock sliding animation
+	 	lockValueVibre = 100;								// distance for sliding to the lock area
 
   	init=function(){ 
 		morinji.append("<div class='nav'></div>"); 				// append div.nav after morinji (slider navigator)
@@ -69,10 +72,34 @@ $(document).ready(function(){
 		else return false;
 	}
 
+	// add effect for going to not existing slides(lock area)
+	function lockSlide(i,j,p,aim){
+		//console.log(aim);
+		switch(aim){
+			case 'top':
+				trainer.animate({'top':(-height*i+lockValueVibre)+'px'},lockAnimationDue).animate({'top':(-height*i)+'px'},lockAnimationDue);
+				break;
+			case 'bottom':
+				trainer.animate({'top':(-height*i-lockValueVibre)+'px'},lockAnimationDue).animate({'top':(-height*i)+'px'},lockAnimationDue);
+				break;
+			case 'left':
+				trainer.animate({'left':(-width*j+lockValueVibre)+'px'},lockAnimationDue).animate({'left':(-width*j)+'px'},lockAnimationDue);
+				break;
+			case 'right':
+				trainer.animate({'left':(-width*j-lockValueVibre)+'px'},lockAnimationDue).animate({'left':(-width*j)+'px'},lockAnimationDue);
+				break;
+		}
+	}
+
+	// toggling the navigation 
+	function navToggle(){
+		nav.toggle();
+	}
+
 
 	// change the slide to a new one
 	go2Slide=function(i,j,p){
-		trainer.animate({"top":(-height*i)+'px',"left":(-width*j)+'px'},900);
+		trainer.animate({"top":(-height*i)+'px',"left":(-width*j)+'px'},animationDue);
 		//console.log(lists.eq(currentSlide));
 		lists.eq(currentSlide).removeClass('active');		// remove the active class from current slide
 		//console.log(lists.eq(p));
@@ -87,28 +114,28 @@ $(document).ready(function(){
 		if(checkSlide(I-1,J,bringBackP(I-1,J))){
 			go2Slide(I-1,J,bringBackP(I-1,J));
 		}
-		else console.log('up');
+		else lockSlide(I,J,currentSlide,"top");
 	}
 
 	downSlide = function(){
 		if(checkSlide(I+1,J,bringBackP(I+1,J))){
 			go2Slide(I+1,J,bringBackP(I+1,J));
 		}
-		else console.log('down');
+		else lockSlide(I,J,currentSlide,'bottom');
 	}
 
 	leftSlide = function() {
 		if(checkSlide(I,J-1,currentSlide-1)){
 			go2Slide(I,J-1,currentSlide-1);
 		}
-		else console.log('left');
+		else lockSlide(I,J,currentSlide,'left');
 	}
 
 	rightSlide = function() {
 		if(checkSlide(I,J+1,currentSlide+1)){
 			go2Slide(I,J+1,currentSlide+1);
 		}
-		else console.log('right');
+		else lockSlide(I,J,currentSlide,'right');
 	}
 
 	// set slides size(width and height) from data-size
@@ -164,8 +191,9 @@ $(document).ready(function(){
 	 		}
 	 		if (keys) {
 				$(document).keydown(function(e){
-					//console.log(e.which);
-					switch(e.which){		//check the input'key pressed
+					console.log(e.which);
+					console.log(e.ctrlKey);
+					switch(e.which){		// check the input's key pressed
 						case 37 : 
 							leftSlide(); 
 							break;
@@ -178,7 +206,11 @@ $(document).ready(function(){
 						case 40 : 
 							downSlide(); 
 							break;
+						// case 17 :
+						// 	navToggle();
+						// 	break;
 					}
+					if(e.ctrlKey && e.which==66) {navToggle();}
 				});
 	 		}
 	 		if (icons) {
@@ -211,4 +243,6 @@ $(document).ready(function(){
 		}
 		return c;
 	}
+
+	fixZoom(width,height,0,0);				// Call the fixZoom
 });

@@ -20,7 +20,7 @@ $(document).ready(function(){
 	 	currentSlide  = 0, 									// current slide (slide number) 
 	 	I = 0,												// current row position of slide
 	 	J = 0,												// current column position of slide
-	 	animationDue = 700,									// due of sliding animation
+	 	animationDue = 900,									// due of sliding animation
 	 	lockAnimationDue = 200,								// due of lock sliding animation
 	 	lockValueVibre = 100;								// distance for sliding to the lock area
 
@@ -101,7 +101,7 @@ $(document).ready(function(){
 
 	// change the slide to a new one
 	go2Slide=function(i,j,p){
-		trainer.animate({"top":(-height*i)+'px',"left":(-width*j)+'px'},animationDue);
+		trainer.animate({"top":(-height*i)+'px',"left":(-width*j)+'px'},animationDue,'easeOutQuint');
 		//console.log(lists.eq(currentSlide));
 		lists.eq(currentSlide).removeClass('active');		// remove the active class from current slide
 		//console.log(lists.eq(p));
@@ -212,7 +212,7 @@ $(document).ready(function(){
 						// 	navToggle();
 						// 	break;
 					}
-					if(e.ctrlKey && e.which==66) {navToggle();}
+					if(e.ctrlKey && e.which==65) {navToggle();}
 				});
 	 		}
 	 		if (icons) {
@@ -232,6 +232,43 @@ $(document).ready(function(){
 		temp = bringBackIAndJ(p);			// find out what is the i and j
 		go2Slide(temp.i, temp.j, p );
 	});
+
+	//dragin touch interactive
+	;(function(){
+		var leftStart=0,
+			topStart=0,
+			aimDragging=null;
+		$(".trainer").draggable({ addClasses: false, cursor: "crosshair", delay: 200, distance: 10 });
+		$(".trainer").draggable({ start:function(event, ui){
+		 	leftStart = ui.position.left;
+		 	topStart = ui.position.top;
+		 }});
+		$(".trainer" ).draggable({drag: function( event, ui ) {
+			console.log("left: "+ui.position.left+" top: "+ui.position.top+" offset-left:"+ui.offset.left);
+			if(-(ui.position.left-leftStart)>width/3) {
+				console.log(-(ui.position.left-leftStart));
+				aimDragging='right';
+				//rightSlide();
+			}
+			if (-(leftStart-ui.position.left)>width/3) {
+				aimDragging='left';
+			}
+			if (-(ui.position.top-topStart)>height/3) {
+				aimDragging='bottom';
+			}
+			if (-(topStart-ui.position.top)>height/3) {
+				aimDragging='top';
+			}
+		}});
+		$(".trainer").draggable({ stop:function(event, ui){
+			if (aimDragging=='right')	rightSlide();
+			if (aimDragging=='left') 	leftSlide();
+			if (aimDragging=='bottom')  downSlide();
+			if (aimDragging=='top') 	upSlide();
+			else go2Slide(I,J,currentSlide);
+			aimDragging=null;
+		}});
+	})();
 
 	//random and  randomcolors functions
 	function rnd(a,b) {

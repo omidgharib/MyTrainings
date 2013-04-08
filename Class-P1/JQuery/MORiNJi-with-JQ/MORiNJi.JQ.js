@@ -1,16 +1,18 @@
 /*
- OmidGharib - MORiNJi ver 0.4 trial
+ OmidGharib - MORiNJi ver 0.7 trial
  Copyright (c) 2013 Omid Gharib .
  https://github.com/omidgharib/MORiNJi
  fork me on github.
 */
 
-$(document).ready(function(){
+$(function(){
 	var morinji = $("div#morinji"),				
-		slider = $("div.slider"),							// 
-		trainer = $("div.trainer"),
-		rows = $("div.trainer > div.row"),					// rows of slides
-		slides = $("div.trainer > div.row > div.slide"), 	// all of slide
+		slider = null,										// whole the slides and navigators divs					
+		trainer = null,										// all the slides 
+		rows = null,										// rows of slides
+		slides = null, 										// all of slide
+		row = null,											// row slides navigator
+		col = null,											// column slides navigator
 		nav = null,
 		lists = null,										// list of btns navigating
 		width = 720,										// slide's width 
@@ -24,8 +26,19 @@ $(document).ready(function(){
 	 	lockAnimationDue = 200,								// due of lock sliding animation
 	 	lockValueVibre = 100;								// distance for sliding to the lock area
 
+	// initial
+	(function(){
+		morinjiHtmlContent=morinji.html();
+		morinji.html("");
+		morinji.append("<div class='slider'><div class='trainer cover'></div></div>");
+		slider = $("div.slider");							
+		trainer = $("div.trainer");
+		trainer.append(morinjiHtmlContent);
+		rows = $("div.trainer > div.row");
+		slides = $("div.trainer > div.row > div.slide");
+	})();
 
-	 // create navigator  
+	// create navigator  
   	navCreate=function(){ 
 		morinji.append("<div class='nav'></div>"); 				// append div.nav after morinji (slider navigator)
 		morinji.append("<div class='rowslides cover'></div>");	// rowslide navigator
@@ -38,7 +51,7 @@ $(document).ready(function(){
 				cols.eq(j).css({"background-color":rndColor()});
 			}
 			nav.append("<div class='clear'></div>");          	//add clear to end of the row in li's
-			//rows.eq(i).append("<div class='clear'></div>"); 	//add clear to end of the row
+			rows.eq(i).append("<div class='clear'></div>"); 	//add clear to end of the row
 		}
 	 	lists=$("div.nav > li");								// initials list of btns
 	}();
@@ -67,13 +80,14 @@ $(document).ready(function(){
 		}
 
 		$("div#morinji > div.rowslides > div.thumb").click(function(){
+			hideAll();
 			j=$(this).index("div.thumb");
 			go2Slide(I,j,bringBackP(I,j));
 		});
 
 		$("div#morinji > div.colslides > div.thumb").click(function(){
+			hideAll();
 			i=$(this).index("div.colslides > div.thumb");
-			console.log(i);
 			go2Slide(i,J,bringBackP(i,J));
 		});
 	}
@@ -110,7 +124,6 @@ $(document).ready(function(){
 
 	// add effect for going to not existing slides(lock area)
 	function lockSlide(i,j,p,aim){
-		//console.log(aim);
 		switch(aim){
 			case 'top':
 				trainer.animate({'top':(-height*i+lockValueVibre)+'px'},lockAnimationDue).animate({'top':(-height*i)+'px'},lockAnimationDue);
@@ -143,6 +156,21 @@ $(document).ready(function(){
 	// toggling the navigation 
 	function navToggle(){
 		nav.toggle();
+	}
+
+	function rowToggle(){
+		if (col.css("display")=='block') {col.hide();}
+		row.toggle();
+	}
+
+	function colToggle(){
+		if (row.css("display")=='block') {row.hide();}
+		col.toggle();
+	}
+
+	function hideAll(){
+		if (row.css("display")=='block') {row.hide();}
+		if (col.css("display")=='block') {col.hide();}
 	}
 
 
@@ -189,7 +217,6 @@ $(document).ready(function(){
 	// set slides size(width and height) from data-size
 	;(function(){
 		size = morinji.attr('data-size');
-		//console.log(size);
 		if(size!=null){
 	 		if(size=='full'){	//if data-size set with full make the width and height maximum depends on LCD resolution and browser
 	 			width = $(window).width(); 
@@ -263,7 +290,9 @@ $(document).ready(function(){
 			if (keys && keyPressed==40) downSlide();
 
 			if (e.ctrlKey && keyPressed==65) navToggle();		// when ctr+a occur
-			if (e.ctrlKey && keyPressed==86) createRowAndColNav();		// when ctr+r occur
+			if (e.ctrlKey && keyPressed==90) rowToggle();		// when ctr+z occur
+			if (e.ctrlKey && keyPressed==88) colToggle();		// when ctr+x occur
+			if (keyPressed==27) hideAll();			// when Esc occur
 		});
 	})();
 
@@ -272,7 +301,6 @@ $(document).ready(function(){
 		//createRowAndColNav()
 		$("div.nav > li").click(function(){
 			p = $(this).index("li");
-			//temp = bringBackIAndJ(p);			// find out what is the i and j
 			go2Slide(bringBackIAndJ(p).i, bringBackIAndJ(p).j, p );
 		});
 

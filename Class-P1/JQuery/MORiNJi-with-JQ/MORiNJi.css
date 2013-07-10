@@ -1,10 +1,11 @@
 /*
- OmidGharib - MORiNJi ver 0.3 trial
- Copyright (c) 2013 Omid Gharib .
- https://github.com/omidgharib/MORiNJi
- fork me on github.
+ 1Schools-Dot-Com - OMG MORiNJi ver 0.9
+ Authors : Omid Gharib
+ Authors Contacts: 
+   *E-mail: omidgharib@yahoo.com
+   *Github: https://github.com/omidgharib
 */
-cover{*zoom:1;}
+.cover{*zoom:1;}
 .cover:before,.cover:after{content:" ";display:table}
 .cover:after{clear:both}
 .clear{clear:both;display:block;width:0 !important;height:0 !important;min-height:0 !important;min-width:0 !important;margin:0 !important;padding:0 !important;overflow:hidden}
@@ -71,6 +72,13 @@ div#morinji div.nav li {
 	    -ms-transition: all 300ms ease-in-out;
 	     -o-transition: all 300ms ease-in-out;
 	        transition: all 300ms ease-in-out;
+}
+
+div#morinji div.nav li a {
+	display: block;
+	text-decoration: none;
+	width: 20px;
+	height: 15px;
 }
 
 div#morinji div.nav li:hover,

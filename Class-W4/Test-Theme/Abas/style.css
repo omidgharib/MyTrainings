@@ -13,3 +13,9 @@ Text Domain: ABAS
 body{
 	background-color: #bbb;
 }
+
+div.container{
+	width: 950px;
+	margin: 0 auto;
+	color: #eee;
+}

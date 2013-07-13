@@ -1,11 +1,11 @@
 <section class="content-container">
 	<section class="main-holder">
         <figure class="img-holder">
-            <img src="images/home-b.png" alt="Home" title="Home" class="img1">
-            <img src="images/about_us.png" alt="About Us" title="About Us" class="img2">
-            <img src="images/services.png" alt="Services" title="Services" class="img3">
-            <img src="images/inquiry.png" alt="Inquiry" title="Inquiry" class="img4">
-            <img src="images/contact_us.png" alt="Contact Us" title="Contact Us" class="img4">
+            <img src="<?php bloginfo("template_url"); ?>/images/home-b.png" alt="Home" title="Home" class="img1">
+            <img src="<?php bloginfo("template_url"); ?>/images/about_us.png" alt="About Us" title="About Us" class="img2">
+            <img src="<?php bloginfo("template_url"); ?>/images/services.png" alt="Services" title="Services" class="img3">
+            <img src="<?php bloginfo("template_url"); ?>/images/inquiry.png" alt="Inquiry" title="Inquiry" class="img4">
+            <img src="<?php bloginfo("template_url"); ?>/images/contact_us.png" alt="Contact Us" title="Contact Us" class="img4">
         </figure>
         <article class="content-holder">
             <div class="pb2 pt3 content1">

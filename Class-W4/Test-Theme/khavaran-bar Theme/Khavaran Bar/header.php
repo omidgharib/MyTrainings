@@ -32,24 +32,23 @@
 				</script>
 			</div>
             <nav>
-                <menu>
-	        		<?php
-						wp_nav_menu(array(
-						  'theme_location'  => 'mainmenu',
-						  'container'       => 'false', 
-						  'container_class' => '', 
-						  'menu_class'      => '', 
-						  'before'          => '',
-						  'after'           => '',
-						  'link_before'     => '',
-						  'link_after'      => ''
-						));
-					?>
+        		<?php
+					wp_nav_menu(array(
+					  'theme_location'  => 'mainmenu',
+					  'container'       => false, 
+					  'container_class' => '', 
+					  'menu_class'      => '', 
+					  'before'          => '',
+					  'after'           => '',
+					  'link_before'     => '',
+					  'link_after'      => '',
+					  'items_wrap'      => '<menu class="%2$s">%3$s</menu>'
+					));
+				?>
 <!--                     <li><a href="page1.svg">Home</a></li>
                     <li><a href="page2.svg">About US</a></li>
                     <li><a href="page3.svg">Services</a></li>
                     <li><a href="page4.svg">Inquiry</a></li>
                     <li><a href="page5.svg">Contact Us</a></li> -->
-                </menu>
             </nav>
 		</section>

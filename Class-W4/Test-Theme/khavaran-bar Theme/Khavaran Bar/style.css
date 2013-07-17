@@ -440,3 +440,8 @@ section.main-holder article.content-holder div.content5 div.gmap iframe:hover {
 	filter: alpha(opacity=100);  /* iE 5-7 */
 	 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; /* iE 8 */
 }
+
+/* 404 page */
+body#page404 {
+	background: url(./images/gradient.jpg) repeat-x top left;
+}

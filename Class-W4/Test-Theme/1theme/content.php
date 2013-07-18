@@ -1,17 +1,27 @@
 <div id="preloader-container">
 <div id="container">
-    
-  <?php the_post(); ?>
+  
+<?php 
+      while(have_posts()){
+      the_post(); 
+?>
   <div class="widget portfolio web homepage">
     <div class="entry-container span4">
     
       <!-- Portfolio Image -->
+      <?php if(has_post_thumbnail()){ ?>
       <div class="entry-image">
         <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>" class="fancybox">
           <span class="entry-image-overlay"></span>
           <?php the_post_thumbnail('medium'); ?>
         </a>
       </div>
+      <?php 
+        }
+        else{
+          
+        }
+       ?>
 
       <div class="entry drop-shadow curved ">
 
@@ -36,6 +46,8 @@
     </div>
   </div>
 
-
+<?php 
+  } 
+?>
 </div>
 </div>

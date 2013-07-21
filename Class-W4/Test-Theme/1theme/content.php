@@ -5,7 +5,6 @@
 
 $args = array(
   'post_type' => 'post',
-  //'post__in' => array(25,28),
   'category_name' => 'تست',
   'orderby' => 'title',
   'order' => 'ASC',
@@ -30,16 +29,16 @@ $query = new WP_Query($args);
       <?php 
         }
         else{
-      ?>
-        <div class="entry-image">
-        <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>" class="fancybox">
-        <span class="entry-image-overlay"></span>
-        <?php the_post_thumbnail('medium'); ?>
-        </a>
-      </div>
-      <?php
+          ?>
+            <div class="entry-image">
+              <a href="images/noimage.png" class="fancybox">
+                <span class="entry-image-overlay"></span>
+                <img src="images/noimage.png" alt="">
+              </a>
+            </div>
+      <?php 
         }
-       ?>
+      ?>
 
       <div class="entry drop-shadow curved ">
 

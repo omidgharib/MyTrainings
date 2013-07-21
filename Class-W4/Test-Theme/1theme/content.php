@@ -1,9 +1,20 @@
 <div id="preloader-container">
 <div id="container">
   
-<?php 
-      while(have_posts()){
-      the_post(); 
+<?php
+
+$args = array(
+  'post_type' => 'post',
+  //'post__in' => array(25,28),
+  'category_name' => 'تست',
+  'orderby' => 'title',
+  'order' => 'ASC',
+);
+
+$query = new WP_Query($args);
+
+  while($query->have_posts()){
+  $query->the_post(); 
 ?>
   <div class="widget portfolio web homepage">
     <div class="entry-container span4">
@@ -19,7 +30,14 @@
       <?php 
         }
         else{
-          
+      ?>
+        <div class="entry-image">
+        <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>" class="fancybox">
+        <span class="entry-image-overlay"></span>
+        <?php the_post_thumbnail('medium'); ?>
+        </a>
+      </div>
+      <?php
         }
        ?>
 
@@ -39,8 +57,13 @@
           </ul>
         </div>
 
-        <p><?php the_excerpt(); ?></p>
-          
+        <p><?php the_excerpt(); ?></p><br />
+        <?php the_content(); ?><br />
+        <p>
+        نوشته شده توسط: <?php the_author(); ?><br />
+          <?php the_category(); ?><br />
+          <?php the_tags(); ?><br />
+        </p>
         <div class="stripes"></div>
       </div>      
     </div>

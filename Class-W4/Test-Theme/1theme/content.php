@@ -52,12 +52,11 @@ $query = new WP_Query($args);
           <ul>
             <li class="left">گرافیک</li>
             <li class="right no-margin"><div class="icon like"></div> 3</li>
-      
           </ul>
         </div>
 
         <p><?php the_excerpt(); ?></p><br />
-        <?php the_content(); ?><br />
+        
         <p>
         نوشته شده توسط: <?php the_author(); ?><br />
           <?php the_category(); ?><br />

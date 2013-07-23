@@ -3,14 +3,17 @@
   
 <?php
 
-$args = array(
-  'post_type' => 'post',
-  'category_name' => 'تست',
-  'orderby' => 'title',
-  'order' => 'ASC',
-);
+  $args = array(
+    'post_type' => 'post',
+    'category_name' => 'تست',
+    'orderby' => 'title',
+    'order' => 'ASC',
+  );
 
-$query = new WP_Query($args);
+  $query = new WP_Query($args);
+
+  $categories = get_categories( $args );
+  //print_r($categories);
 
   while($query->have_posts()){
   $query->the_post(); 
@@ -20,7 +23,7 @@ $query = new WP_Query($args);
     
       <!-- Portfolio Image -->
       <?php if(has_post_thumbnail()){ ?>
-      <div class="entry-image">
+      <div class="entry-imsge">
         <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>" class="fancybox">
           <span class="entry-image-overlay"></span>
           <?php the_post_thumbnail('medium'); ?>

@@ -1,6 +1,17 @@
 <!-- Le Header
 ================================================== -->
 <!-- This is the logo and navigation -->
+<?php 
+	$args = array(
+		'type' => 'post',
+		'orderby' => 'name',
+		'order' => 'ASC',
+		'hide_empty' => True
+	);
+
+	$all_categories = get_categories( $args );
+	//print_r($all_categories);
+?>
 
 	<div class="navigation">
 		<nav>
@@ -24,9 +35,18 @@
 					<li>
 						<a href="#filter=.portfolio" class="selected"><span data-toggle="collapse" data-target="#portfolio-collapse"></span>نمونه کارها</a>
 						<ul id="portfolio-collapse" class="collapse out">
-							<li><a href="#filter=.graphics">گرافیک</a></li>
+						<?php 
+							foreach ($all_categories as $category) {
+								$category_name = $category->name;
+								$category_slug = $category->slug;
+						?>
+									<li><a href="#filter=.<?php echo $category_name ?>"><?php echo $category_slug ?></a></li>
+						<?php
+							}
+						 ?>
+							<!-- <li><a href="#filter=.graphics">گرافیک</a></li>
 							<li><a href="#filter=.illustration">وب سایت</a></li>
-							<li><a href="#filter=.web">موبایل</a></li>
+							<li><a href="#filter=.web">موبایل</a></li> -->
 						</ul>
 					</li>
 					

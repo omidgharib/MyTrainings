@@ -10,20 +10,27 @@
     'order' => 'ASC',
   );
 
+  $class_name = "portfolio";
+
   $query = new WP_Query($args);
 
-  $categories = get_categories( $args );
+  //$categories = get_categories( $args );
   //print_r($categories);
 
   while($query->have_posts()){
-  $query->the_post(); 
+  $query->the_post();
+
+  $categories = get_the_category();
+  foreach($categories as $category) {
+    $class_name  .= " " . $category->slug;
+  }
 ?>
-  <div class="widget portfolio web homepage">
+  <div class="widget <?php echo $class_name ?> web homepage">
     <div class="entry-container span4">
     
       <!-- Portfolio Image -->
       <?php if(has_post_thumbnail()){ ?>
-      <div class="entry-imsge">
+      <div class="entry-image">
         <a href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>" class="fancybox">
           <span class="entry-image-overlay"></span>
           <?php the_post_thumbnail('medium'); ?>

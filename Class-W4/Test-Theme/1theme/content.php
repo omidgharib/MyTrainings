@@ -4,26 +4,27 @@
 <?php
 
   $args = array(
-    'post_type' => 'post',
-    'category_name' => 'تست',
+    'post_type' => 'product',
     'orderby' => 'title',
     'order' => 'ASC',
   );
 
-  $class_name = "portfolio";
 
   $query = new WP_Query($args);
 
-  //$categories = get_categories( $args );
-  //print_r($categories);
-
   while($query->have_posts()){
-  $query->the_post();
 
-  $categories = get_the_category();
-  foreach($categories as $category) {
-    $class_name  .= " " . $category->slug;
-  }
+    $class_name = "portfolio";
+    $query->the_post();
+
+    $types = get_the_terms($post->ID,'type');
+
+    if($types){
+      foreach($types as $type){
+        $class_name  .= " tx_" . $type->slug;
+      }
+    }
+    
 ?>
   <div class="widget <?php echo $class_name ?> web homepage">
     <div class="entry-container span4">

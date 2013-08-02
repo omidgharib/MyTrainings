@@ -1,4 +1,5 @@
 <?php
+
 function custome_theme_init (){
 	$labels = array(
 	    'name' => _x('product', 'post type general name'),
@@ -28,7 +29,7 @@ function custome_theme_init (){
 	    'hierarchical' => false,
 	    'menu_position' => 20,
 	    //'menu_icon' => get_bloginfo('template_url') . '/images/menu.png', // 16x16
-	    'supports' => array('title','editor','thumbnail','excerpt')
+	    'supports' => array('title','editor','thumbnail','excerpt','custom-fields')
 	);
 
 	register_post_type ('product',$args);
@@ -39,14 +40,91 @@ function custome_theme_init (){
 
 	register_nav_menu('mainmenu', "Main Manu");
 
-	register_taxonomy(
-	  	'type',
-	  	'product',
-	  	array(
-			'label' => _x( 'Type',"product taxonomy"),
-	    	'rewrite' => array( 'slug' => 'type' )
-		)
+	register_taxonomy (
+  		'type',
+  		'product',
+  		array(
+	      'labels' => array(
+	      'name' => __('Types'),
+	      'singular_name' => __('Types'),
+	      'menu_name' => __('Type'),
+	      'all_items' => __('All Types'),
+	      'edit_item' => __('Edit Type'),
+	      'view_item' => __('View Type'),
+	      'update_item' => __('Update Type'),
+	      'add_new_item' => __('Add New Type'),
+	      'new_item_name' => __('New Type Name'),
+	      'parent_item' => __('Parent Type'),
+	      'search_items' => __('Search Types'),
+	      'popular_items' => __('Popular Types'),
+	      'parent_item_colon' => __('Popular Types :'),
+	      'separate_items_with_commas' => __('Separate Types with commas'),
+	      'add_or_remove_items' => __('Add or remove Type'),
+	      'choose_from_most_used' => __('Choose from the most used Types'),
+	      'not_found' => __( 'No Type found.' )
+	    ),
+	    'public' => true,
+	    'show_ui' => true,
+	    'show_in_nav_menus' => true,
+	    'show_tagcloud' => true,
+	    'hierarchical' => true,
+	    'query_var' => 'type',
+	    'rewrite' => array( 'slug' => 'type' )
+    	)
 	);
-}
+		add_shortcode('hello','say_hello');
+	}
 
 add_action('init', 'custome_theme_init');
+
+function add_custom_box() {
+  add_meta_box('priceid', 'Price', 'price_box', 'product','side');
+  // add_meta_box($id, $title, $callback, $post_type, $context);
+  // ali.md/wpref/add_meta_box
+  function price_box() {
+  $price = 0;
+  $prevprice = 0;
+  if ( isset($_REQUEST['post']) ) {
+    $postID = (int)$_REQUEST['post'];
+    $price = get_post_meta($postID,'Price',true);
+    // ali.md/wpref/get_post_meta
+    $price = (float) $price;
+  }
+  if ( isset($_REQUEST['post']) ) {
+    $postID = (int)$_REQUEST['post'];
+    $prevprice = get_post_meta($postID,'PrevPrice',true);
+    // ali.md/wpref/get_post_meta
+    $prevprice = (float) $prevprice;
+  }
+
+  echo "<label for='price'>Product Prices</label>";
+  echo "<input id='price' title='Price' class='widefat' name='price' size='20' type='text' value='$price'>";
+  echo "<input id='prevprice' title='Previous Price' class='widefat' name='prev_price' size='20' type='text' value='$prevprice'>";
+  }
+}
+
+function save_meta($postID) {
+  if ( is_admin() ) {
+    if ( isset($_POST['price']) ) {
+      $price = (float) $_POST['price'];
+      update_post_meta($postID,'Price', $Price);
+      // ali.md/wpref/update_post_meta
+    }
+    if ( isset($_POST['prev_price']) ) {
+      $prevprice = (float) $_POST['prev_price'];
+      update_post_meta($postID,'PrevPrice', $prevprice);
+      // ali.md/wpref/update_post_meta
+    }
+  }
+}
+
+add_action('save_post','save_meta');
+add_action('add_meta_boxes', 'add_custom_box');
+
+
+function say_hello($atts){
+  extract( shortcode_atts( array(
+    'name' => 'ali'
+  ), $atts ) );
+  return "<h1 style=\"color:red;text-align:center;\">Hello $name</h1>";
+}

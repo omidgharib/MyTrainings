@@ -16,6 +16,9 @@
 
     $class_name = "portfolio";
     $query->the_post();
+    $meta = get_post_custom();
+    $Price = count($meta['Price'])>0 ? $meta['Price'][0] : 0;
+    $PrevPrice = count($meta['PrevPrice'])>0 ? $meta['PrevPrice'][0] : 0;
 
     $types = get_the_terms($post->ID,'type');
 
@@ -61,12 +64,12 @@
         </h5>
         <div class="entry-footer">
           <ul>
-            <li class="left">گرافیک</li>
+            <li class="left"><?php echo $Price; ?></li>
             <li class="right no-margin"><div class="icon like"></div> 3</li>
           </ul>
         </div>
 
-        <p><?php the_excerpt(); ?></p><br />
+        <p><?php the_content(); ?></p><br />
         
         <p>
         نوشته شده توسط: <?php the_author(); ?><br />

@@ -12,6 +12,7 @@
 	);
 
 	$all_types = get_terms( $taxonomies, $args );
+
 ?>
 
 	<div class="navigation">
